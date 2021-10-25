@@ -19,6 +19,6 @@ git commit -m 'deploy'
 # Deploying to https://username.github.io/repo
 # if you are deploying to https://<USERNAME>.github.io/<REPO> branch-x:branch-y
 # TODO check if the addition of branches is needed
-git push -f git@github.com:effectai/hackathon-docs.git main:gh-pages
+git push -f git@github.com:effectai/developer-docs.git main:gh-pages
 
 cd -
