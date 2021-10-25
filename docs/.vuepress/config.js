@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Effect Network Hackathon Docs',
+    title: 'Effect Developer',
     description: 'Vue-powered Static Site Generator',
     head: [
         ['link', { rel: 'icon', href: `/logo.png` }],
@@ -14,9 +14,19 @@ module.exports = {
     ],
     host: '0.0.0.0',
     port: '8080',
-    base: '/developer-docs', // 
-    plugins: [],
+    base: '/developer-docs/',
+    plugins: [
+        '@vuepress/active-header-links'
+    ],
     theme: 'antdocs',
+    themeConfig: {
+        backtoTop: true,
+        logo: '/logo_icon.png',
+        nav: require('./nav'),
+        sidebar: require('./sidebar'),
+        sidebarDepth: 2,
+        repo: 'https://github.com/effectai/developer-docs'
+    },
     configureWebpack: {
         resolve: {
             alias: {

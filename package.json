@@ -1,7 +1,7 @@
 {
-  "name": "hackathon-docs",
+  "name": "effect-network-developer-docs",
   "version": "1.0.0",
-  "description": "Effect Network hackathon documentation",
+  "description": "Effect Network developer documentation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/effectai/hackathon-docs#readme",
   "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.8.2",
     "vuepress": "^1.8.2"
   },
   "dependencies": {
