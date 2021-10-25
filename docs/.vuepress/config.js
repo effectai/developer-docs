@@ -23,7 +23,20 @@ module.exports = {
         backtoTop: true,
         logo: '/logo_icon.png',
         nav: require('./nav'),
-        sidebar: require('./sidebar'),
+        // sidebar: require('./sidebar'),
+        sidebar: {
+            '/': [
+                '',
+                'config'
+            ],
+            'guide': [
+                '/'
+            ],
+            'blockchain': [
+                'bsc/',
+                'eos/'
+            ]
+        },
         sidebarDepth: 2,
         repo: 'https://github.com/effectai/developer-docs'
     },

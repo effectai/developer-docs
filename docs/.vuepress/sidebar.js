@@ -3,15 +3,15 @@ module.exports = [
         title: "Effect Network",
         collapsable: true,
         children:[
-            "/plugin/",
-            "vuepress-plugin-graysite"
+            "guide",
         ]
     },
     {
         title: "Blockchains",
         collapsable: true,
         children:[
-            "medium-zoom",
+            "/eos/",
+            "/bsc/"
         ]
     }
 ]
