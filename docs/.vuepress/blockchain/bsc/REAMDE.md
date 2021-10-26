@@ -1,1 +1,0 @@
-information on how to get set up with the bsc blockchain as a developer.

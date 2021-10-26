@@ -1,1 +1,0 @@
-information on how to get set up with the eos blockchain as a developer
