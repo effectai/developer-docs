@@ -1,5 +1,9 @@
 module.exports = [
     {
+      text: 'Home',
+      link: '/'
+    },
+    {
       text: 'SDK-Reference',
       link: 'https://sdk.effect.network'
     },

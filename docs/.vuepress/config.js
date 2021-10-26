@@ -2,8 +2,8 @@ module.exports = {
     title: 'Effect Developer',
     description: 'Vue-powered Static Site Generator',
     head: [
-        ['link', { rel: 'icon', href: `/logo.png` }],
-        ['link', { rel: 'manifest', href: '/manifest.json' }],
+        ['link', { rel: 'icon', href: `/logo_icon.png` }],
+        // ['link', { rel: 'manifest', href: '/manifest.json' }],
         ['meta', { name: 'theme-color', content: '#3eaf7c' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
@@ -20,25 +20,27 @@ module.exports = {
     ],
     theme: 'antdocs',
     themeConfig: {
-        backtoTop: true,
         logo: '/logo_icon.png',
+        // repo: 'https://github.com/effectai/developer-docs',
+        repo: 'effectai/developer-docs',
+        repoLabel: 'Contribute!',
+        docsDir: 'docs',
+        docsBranch: 'main',
+        editLinks: true,
+        editLinkText: 'Help us improve this page!',
+        backtoTop: true,
+        search: true,
+        searchPlaceholder: 'Search...',
+        lastUpdated: 'Last Updated',
+        nextLinks: true,
+        prevLinks: true,
+        smoothScroll: true,
+
+        displayAllHeaders: false,
+        navbar: true,
         nav: require('./nav'),
-        // sidebar: require('./sidebar'),
-        sidebar: {
-            '/': [
-                '',
-                'config'
-            ],
-            'guide': [
-                '/'
-            ],
-            'blockchain': [
-                'bsc/',
-                'eos/'
-            ]
-        },
-        sidebarDepth: 2,
-        repo: 'https://github.com/effectai/developer-docs'
+        sidebar: require('./sidebar'),
+        // sidebarDepth: 3,
     },
     configureWebpack: {
         resolve: {
