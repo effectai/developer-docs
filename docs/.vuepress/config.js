@@ -23,7 +23,7 @@ module.exports = {
         logo: '/logo_icon.png',
         // repo: 'https://github.com/effectai/developer-docs',
         repo: 'effectai/developer-docs',
-        repoLabel: 'Contribute!',
+        // repoLabel: 'Contribute!',
         docsDir: 'docs',
         docsBranch: 'main',
         editLinks: true,

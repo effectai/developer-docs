@@ -4,18 +4,7 @@
  */
 
 module.exports = [
-    {
-        title: "Effect Network 🎆",
-        collapsable: true,
-        sidebarDepth: 1,
-        path: "/",
-        children:[
-            "",
-            "glossary",
-            "contact",
-            "about"
-        ]
-    },
+
 
     {
         title: "Quickstart 🚀",
@@ -23,7 +12,7 @@ module.exports = [
         sidebarDepth: 1,
         path: "/quickstart/",
         children:[
-            "",
+            "/quickstart/",
             "/quickstart/bsc_account"
         ]
     },
@@ -34,7 +23,7 @@ module.exports = [
         sidebarDepth: 1,
         path: "/sdk/",
         children:[
-            ""
+            "/sdk/"
         ]
     },
 
@@ -44,9 +33,21 @@ module.exports = [
         sidebarDepth: 1,
         path: '/blockchain/',
         children: [
-            ""
+            "/blockchain/"
         ]
+    },
 
+    {
+        title: "Effect Network 🎆",
+        collapsable: true,
+        sidebarDepth: 1,
+        path: "/",
+        children:[
+            "/",
+            "glossary",
+            "contact",
+            "about"
+        ]
     },
 ]
 
