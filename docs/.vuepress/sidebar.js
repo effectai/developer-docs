@@ -5,7 +5,7 @@
 
 module.exports = [
     {
-        title: "Quickstart",
+        title: "Quickstart 🚀",
         collapsable: true,
         sidebarDepth: 1,
         path: '/quickstart/',
@@ -15,7 +15,7 @@ module.exports = [
     },
 
     {
-        title: "SDK",
+        title: "SDK 🥠",
         collapsable: true,
         sidebarDepth: 1,
         path: '/sdk/',
@@ -33,7 +33,7 @@ module.exports = [
 
     // Fallback, this needs to be last, otherwise it will catch everything
     {
-        title: "Effect Network",
+        title: "Effect Network 🎆",
         collapsable: true,
         sidebarDepth: 1,
         path: '/',
@@ -45,7 +45,4 @@ module.exports = [
         ]
     },
 ]
-
-// It is possible to generate the sidebar automatically from the title of each page.
-// module.exports = 'auto' // automatically generate sidebar from headers.
 
