@@ -18,7 +18,7 @@ module.exports = {
     plugins: [
         '@vuepress/active-header-links'
     ],
-    theme: 'antdocs',
+    // theme: 'antdocs',
     themeConfig: {
         logo: '/logo_icon.png',
         // repo: 'https://github.com/effectai/developer-docs',
@@ -27,7 +27,7 @@ module.exports = {
         docsDir: 'docs',
         docsBranch: 'main',
         editLinks: true,
-        editLinkText: 'Help us improve this page!',
+        editLinkText: 'Help us improve this page',
         backtoTop: true,
         search: true,
         searchPlaceholder: 'Search...',
@@ -35,6 +35,8 @@ module.exports = {
         nextLinks: true,
         prevLinks: true,
         smoothScroll: true,
+
+        lineNumbers: true,
 
         displayAllHeaders: false,
         navbar: true,

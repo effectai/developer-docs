@@ -5,12 +5,26 @@
 
 module.exports = [
     {
+        title: "Effect Network 🎆",
+        collapsable: true,
+        sidebarDepth: 1,
+        path: "/",
+        children:[
+            "",
+            "glossary",
+            "contact",
+            "about"
+        ]
+    },
+
+    {
         title: "Quickstart 🚀",
         collapsable: true,
         sidebarDepth: 1,
-        path: '/quickstart/',
+        path: "/quickstart/",
         children:[
-            // "/",
+            "",
+            "/quickstart/bsc_account"
         ]
     },
 
@@ -18,31 +32,45 @@ module.exports = [
         title: "SDK 🥠",
         collapsable: true,
         sidebarDepth: 1,
-        path: '/sdk/',
+        path: "/sdk/",
         children:[
+            ""
         ]
     },
 
-    // {
-    //     title: "Blockchain",
-    //     collapsable: true,
-    //     sidebarDepth: 1,
-    //     path: '/blockchain/',
-
-    // },
-
-    // Fallback, this needs to be last, otherwise it will catch everything
     {
-        title: "Effect Network 🎆",
+        title: "Blockchain",
         collapsable: true,
         sidebarDepth: 1,
-        path: '/',
-        children:[
-            "/",
-            "glossary",
-            "contact",
-            "about"
+        path: '/blockchain/',
+        children: [
+            ""
         ]
+
     },
 ]
 
+
+/**
+module.exports = {
+        '/quickstart/': [
+            '',
+            'bsc_account'
+        ],
+    
+        '/blockchain/': [
+            ''
+        ],
+    
+        '/sdk/': [
+            ''
+        ],
+        
+        '/': [
+            '', 
+            'about',
+            'contact',
+            'glossary',
+        ]
+    }
+*/
