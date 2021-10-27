@@ -13,8 +13,8 @@ module.exports = [
         path: "/quickstart/",
         children:[
             // "",
-            "/quickstart/",
-            "/quickstart/bsc_account"
+            // "/quickstart/gui" // Can be added later, for now it the docs need to be clean.
+            // "/quickstart/bsc_account"
         ]
     },
 
@@ -24,19 +24,20 @@ module.exports = [
         sidebarDepth: 1,
         path: "/sdk/",
         children:[
-            "/sdk/"
+            // "/sdk/"
         ]
     },
 
-    {
-        title: "Blockchain",
-        collapsable: false,
-        sidebarDepth: 1,
-        path: '/blockchain/',
-        children: [
-            "/blockchain/"
-        ]
-    },
+    // Can be added later, for now the docs need to be as clean as possible.
+    // {
+    //     title: "Blockchain",
+    //     collapsable: false,
+    //     sidebarDepth: 1,
+    //     path: '/blockchain/',
+    //     children: [
+    //         // "/blockchain/"
+    //     ]
+    // },
 
     {
         title: "Effect Network 🎆",
@@ -44,7 +45,7 @@ module.exports = [
         sidebarDepth: 1,
         path: "/",
         children:[
-            "/",
+            "",
             "glossary",
             "contact",
             "about"
@@ -52,27 +53,3 @@ module.exports = [
     },
 ]
 
-
-/**
-module.exports = {
-        '/quickstart/': [
-            '',
-            'bsc_account'
-        ],
-    
-        '/blockchain/': [
-            ''
-        ],
-    
-        '/sdk/': [
-            ''
-        ],
-        
-        '/': [
-            '', 
-            'about',
-            'contact',
-            'glossary',
-        ]
-    }
-*/
