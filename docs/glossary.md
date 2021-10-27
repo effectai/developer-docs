@@ -14,20 +14,33 @@ Workers are the engine of the Effect Network. They are the human intelligence in
 Requesters submit tasks to the platform via templates for workers to work on. 
 
 ## Force
+Force is the frontend provided by Effect Network for workers to work on campaings and tasks.
 
 ## Templates
-
+Templates designs that are used to submit tasks to the platform. They are HTML such as the folowing:
+```html
+<div id="task">
+  <fc-media>
+    <fc-image src='${image_url}'></fc-image>
+  </fc-media>
+  <h2>Image Classification</h2>
+  <fc-option submit name="button-answer" type="button" :options="['Cat','Dog','Mechanical Turk','Other']" label="What do you see in the picture above?"></fc-option>
+</div>
+```
+Templates have placeholder variables that are replaced with the actual values when the task is worked on by a worker. The 
 ## Campaigns
+Campaigns are the overarching structure that holds tasks from each requester. Campaigns are created by requesters and are worked on by the workers. When all of the tasks in a campaign are completed, the campaign is marked as completed until new tasks are uploaded to the platform. 
 
 ## Tasks
-
+A task is the unit of work that is done by each worker. The tasks are the filled in templates that are submitted to the platform.
 ## Batches
+Batches are submitted to the platform in the form of batches. Each time a batch is submitted, a new task is created from the data that is supplied with the batch.
 
 ## IPFS
-
+The interplanetary file system is used in order to upload data to the cloud. For the time being this is the data storage mechanism that is used.
 ## Blockchain
-
+Currently, two blockchains are supported. The eos blockchain and binance smart chain. Data is not stored on the blockchains
 ### EOS
-
+The main blockchain that is used on this platform. Most of the mechanisms in place are done via the eos blockchain. 
 ### BSC
-
+BSC is used to make it easier for users to interact with the platform.
