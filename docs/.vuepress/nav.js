@@ -5,7 +5,8 @@ module.exports = [
     },
     {
       text: 'SDK-Reference',
-      link: 'https://sdk.effect.network'
+      // link: 'https://sdk.effect.network'
+      link: 'https://effectai.github.io/effect-js/'
     },
     {
       text: 'Website',
