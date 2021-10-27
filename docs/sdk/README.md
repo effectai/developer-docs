@@ -1,13 +1,15 @@
 # SDK
 
 ## Client
+The client is used to create a connection to interact with Effect Network.
 
+
+## Force
+The Force class is the interface with the components of the Effect Network, such as Campaigns, Templates, Qualifications.
 ## Configuration
+Every time you instantiate the client, a configuration object passes to it. For now, the development happens on the testnet. 
 
-Give a list of all of the configuration items that need to appear here.
-
-
-### Default Mainnet configuration
+<!-- ### Default Mainnet configuration
 
 ```js
 {
@@ -29,7 +31,7 @@ Give a list of all of the configuration items that need to appear here.
     eos_relayer:            "pixeos1gswap",
     eos_relayer_permission: "active"
 }
-```
+``` -->
 
 ### Default Testnet Configuration
 ```js
