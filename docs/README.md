@@ -12,17 +12,12 @@ Tap into the power of the force and launch your dApp today!
  
 # EFX
 
-How and where to get EFX.
-
-https://effect.network/token-page
+You can get EFX by following this link: [EFX](https://effect.network/token-page)
 
 Official Token Contracts
 BSC Token Contract:
-0xc51ef828319b131b595b7ec4b28210ecf4d05ad0
+[0xc51ef828319b131b595b7ec4b28210ecf4d05ad0](https://bscscan.com/token/0xC51Ef828319b131B595b7ec4B28210eCf4d05aD0)
 
 EOS Token Contract:
-effecttokens
+[effecttokens](https://www.bloks.io/account/effecttokens)
 
-https://bscscan.com/token/0xC51Ef828319b131B595b7ec4B28210eCf4d05aD0
-
-https://www.bloks.io/account/effecttokens
