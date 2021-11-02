@@ -105,3 +105,8 @@ dist
 
 # Vuepress
 .test
+
+# SRC
+src/node_modules
+src/transactionObject.js
+
