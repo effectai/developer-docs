@@ -41,7 +41,11 @@ In your project folder, you can now start installing packages that will assist y
 <code-group>
 <code-block title="NPM">
 ```bash
-npm i @effectai/effect-js
+npm i @effectai/effect-js // For stable version 🏡🌲🐕
+
+# OR
+
+npm i @effectai/effect-js@next // For bleeding edge 🩸🔪
 ```
 </code-block>
 
@@ -87,6 +91,10 @@ It is usefull though to pass a `web3` object, so that the sdk has access to it.
 The first parameter for the constructor is which network to use. At the moment only testnet on `kylin` is supported. 
 See the [Configuration](../sdk/) page for more information about the configuration object and it's default values.
 
+:::warning Fetch
+Depending on your environment, you'll want to configure which fetch you will want to use in order to use the [fetch standard](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+:::
+
 
 <code-group>
 <code-block title="require">
@@ -97,8 +105,8 @@ const EffectSDK = require('@effectai/effect-js');
 const sdkOptions = {
   network: 'kylin',
   host: 'api.kylin.alohaeos.com',
-  signatureProvider: window.eos.wallet // Specify the eos wallet provider you want to use.
-  web3: window.web3 // Specify the web3 instance you want to use.
+  signatureProvider: window.eos.wallet // Optional, Specify the eos wallet provider you want to use.
+  web3: window.web3 // Optional, Specify the web3 instance you want to use.
 }
 const sdk = new EffectSDK.EffectClient('testnet', sdkOptions)
 
@@ -113,8 +121,8 @@ import { EffectClient } from '@effectai';
 const sdkOptions = {
   network: 'kylin',
   host: 'api.kylin.alohaeos.com',
-  signatureProvider: window.eos.wallet // Specify the eos wallet provider you want to use.
-  web3: window.web3 // Specify the web3 instance you want to use.
+  signatureProvider: window.eos.wallet // Optional, Specify the eos wallet provider you want to use.
+  web3: window.web3 // Optional, Specify the web3 instance you want to use.
 }
 const sdk = new EffectClient('testnet', sdkOptions)
 
@@ -128,8 +136,8 @@ Before you can publish campaigns on Effect Network, you need to create an accoun
 Create an account so you can start making transactions on the Effect Network. This way, you can pay for creating the campaigns and running them.
 
 ```js
-await sdk.account.openAccount('account_name')
-await sdk.account.getVAccountByName('account_name')
+await sdk.account.openAccount('tree_friend')
+await sdk.account.getVAccountByName('tree_friend')
 ```
 
 ## Get Money 💸
@@ -144,8 +152,8 @@ After you have used the faucet to get your tokens, you will be able to get your 
 
 ```js
 // from account, to vaccount, amount in EFX
-await sdk.account.getVAccountByName('account_name')
-await sdk.account.getPendingBalance(accountid)
+const account = await sdk.account.getVAccountByName('account_name')
+const balance = await sdk.account.getPendingBalance(account.id)
 
 
 // from vaccount, to account, amount in EFX
@@ -159,6 +167,13 @@ await sdk.account.vtransfer('from_vaccount_name', 'to_vaccount_name', '1.0000')
 Now that the client is initialized we can start thinking about creating a campaign and its subsequent batches and tasks. First, the campaign needs to be created, then the templates can be designed, and the batches created with the tasks to fill in the template.
 
 When creating a campaign, we first need to specify a couple of parameters, such as the description and instructions. Which are easy; these are just strings. But there are more complex objects, such as the template.
+
+### Creating qualifications
+Qualifications are the requirements that a worker has proven to have, in order for a worker to join and work on a campaign. 
+
+:::danger EFFECT NETWORK INTERNAL
+This section is not finished yet, waiting on sdk and smartcontract.
+:::
 
 ### Creating a template.
 A template is simply some vanilla HTML that has a placeholder value that will be replaced with data when it is presented to the worker as a task. That's a bit of a mouthful; let's break it down.
@@ -182,35 +197,33 @@ This is a template:
 </div>
 ````
 
-The template will render into the following:
+The template will render into the following image:
 ![](./template.png)
 
 
 ### Define Campaign
-Now that we understand how templates are rendered we can start prototyping the rest of the campaign. 
-<!-- The function signature for campaign creation is:
-`createCampaign (owner: string, accountId: number, nonce: number, hash: string, quantity: string, options: object)
-The function signature for creating campaigns is as follows:` -->
+Now that we understand how to create and render templates, we can start prototyping the rest of the campaign.
+The next step now is to create the campaign object. This campaign object contains essential information such as; what kind of campaign it is, which template is used, and how much workers are rewarded. When the campaign object is uploaded to an IPFS service, retrieve your hash. This hash is used to create the campaign. Storing data directly on the blockchain is possible, but it is costly; thus, for now, we will be using the method. That way the campaign data is not stored on the blockchain itself but can be easily referenced from the smart contract and your dApps.
 
+Use the example given below in order to create your own campaign object. 
+
+:::tip
+Note the use of IPFS URLs, you can use any URL of your choice, but it is useful to use IPFS to store your data.
+:::
 
 :::danger EFFECT NETWORK INTERNAL
-Rewrite this piece
+Figure out how to pass the template string with the `place_holder` value elegantly. 
+At the moment, the `place_holder` is appended to the template string.
 :::
-There are a couple of parameters that need to be filled in before the campaign can be created. Take a look at `campaginIpfs` to see what parameters are needed. After these are filled in, the campaign needs to be uploaded to IPFS using `uploadCampaign` function, the ipfs hash is then passed to the `createCampaign` function. That way the campaign data is not stored on the blockchain itself but can be easily referenced from the smart contract and your applications.
-
-
 HTML template that will be passed to the `createCampaign` function. 
-
-
-Uploading and creating campaign programmatically:
 ```js
-const campaignIpfs = {
+const uploadCampaignIpfs = {
           title: 'Tree Friends 🐻',
           description: 'All the tree friends are lost. They need you to find them.',   // Description of the campaign
           instructions: 'Identify all the happy tree friends!',  // Instructions for workers on how to complete tasks, accepts Markdown
           // The template that will be used for the tasks
           template: `<div id="task">
-                        <image src='${image_url}'></image>
+                        <image src='` + '${image_url}' + `'></image>
                         <h2>Image Classification</h2>
                         <option submit name="button-answer" type="button" :options="['Cat','Dog','Mechanical Turk','Other']" label="What do you see in the picture above?"></option>
                       </div>`,      
@@ -222,40 +235,49 @@ const campaignIpfs = {
         }
 
 const hash = await this.$blockchain.uploadCampaign(campaignIpfs)
-const result = await this.$blockchain.createCampaign(hash, this.campaignIpfs.reward)
+const result = await this.$blockchain.createCampaign('your_account_name', 'your_account_id', uploadCampaignIpfs.hash, uploadCampaignIpfs.reward, {}) 
 
 console.log(result) // so that devs can take a look at the interface of their campaign
 ```
 ### Visit Testnet 
-Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. This is also where you should be able to join your own campaign and work on it. 
+Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link and join your campaign to work on the tasks.
 
 ### Creating batches and uploading task data
 
-Is this automatically published when a batch is created?
-Add a json file with an array of ipfs urls that can be used for the devs to add to their batches and fill in their tasks.
+The campaign should be up and running now, the way we add data in to the campaign is through batches. Every time new tasks are added, they are added as a batch. That way the tasks are neatly organised. 
+The task is already defined by the template as stated above, so now all that needs to be done is to pass the `place_holder` in to the template every time it is presented to the worker. 
 
-https://github.com/effectai/effect-js/blob/872d6d180fc977dc0c2037bc3688f4674285426a/src/force/force.ts#L232
+This examples relies on an image being loaded into the place holder. This is done by passing a url string into the image tag that is defined in the template. 
+So we will first create the task image urls, and then create the batch so that it can be published.
 
+
+Define the tasks (These tasks have already been uploaded to ipfs), create and publish the batch. 
 ```js
-  
-  /**
-   * @param campaignOwner
-   * @param permission
-   * @param campaignId
-   * @param batchId
-   * @param content
-   * @param repetitions
-   * @returns
-   */
 
-    const batch = await createBatch(campaignOwner, campaignId, batchId, content, repititions, options)
+    const content = {
+        'tasks': [
+            {"place_holder": "https://ipfs.effect.ai/ipfs/bafkreiggnttdaxleeii6cdt23i4e24pfcvzyrndf5kzfbqgf3fxjryj5s4"}, 
+            {"place_holder": "https://ipfs.effect.ai/ipfs/bafkreidrxwhqsxa22uyjamz7qq3lh7pv2eg3ykodju6n7cgprmjpal2oga"}, 
+            {"place_holder": "https://ipfs.effect.ai/ipfs/bafkreid2ocabg7mo235uuwactlcf7vzxyagoxeroyrubfufwobtqz3q27q"}, 
+            {"place_holder": "https://ipfs.effect.ai/ipfs/bafkreifu5xciyxpwnmkorzddanqtc66i43q5cn4sdkb3l563yjzd7s3274"}
+        ]
+    }
+
+    const batch_tx = await efx.force.createBatch('account_name', 'campaign_id', 'batch_id', content, 123, {})
 
 ```
 
-
 ## Wait for response
-When the task is published, a worker will start working on it as soon as possible. When the worker is done with the task, it will be published on the blockchain, and then you will be able to retrieve it by calling the following method.
+When the batch is published, it will become visible to the workers and they will start working on it as soon as possible. Completion time can vary a bit depending on the type of the campaign and campaign qualifications. 
 
+when a task is done, you will be able to retrieve the results using the following method. 
+
+:::danger EFFECT INERNAL
+This piece is not  finished yet, waiting on sdk
+:::
+```js
+const result = await efc.force.getResult(x, y, z)
+```
 
 
 ## Summary
@@ -264,7 +286,11 @@ So in summary the following things are needed to create a campaign:
 - Installing the sdk
 - Creating a virtual account
 - Creating a campaign
+- Creating qualifications
+- Creating templates
 - Creating batches and tasks
 - Waiting for workers to complete the tasks
 - Retrieving the results
+- ...
+- Profit! 💸💸💸
 
