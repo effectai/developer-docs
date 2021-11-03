@@ -1,5 +1,6 @@
 const effectjs = require('@effectai/effect-js')
 const eosjs = require('eosjs')
+const Web3 = require('web3')
 const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig')
 const process = require('process')
 
@@ -15,6 +16,10 @@ if (process.argv.length < 3) {
     const account_name = 'pixeos1gswap'
     const account_permission = 'active'
     const account_id = 11
+
+    const rpc = 'https://bsc-dataseed1.ninicoin.io/'
+    const w3 = new Web3(rpc)
+    w3.eth.accounts.wallet.create(1)
     
     const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
     const effectConfig = { network: 'kylin', host: 'https://api.kylin.alohaeos.com:443' };
@@ -23,7 +28,7 @@ if (process.argv.length < 3) {
     
     // Call basic functionality here, such as: 
 
-    const efxAccount = await efx.connectAccount(signatureProvider);
+    const efxAccount = await efx.connectAccount(null, w3);
     console.log(efxAccount)
 
     const openacc = await efx.account.openAccount(account_name, account_permission)
