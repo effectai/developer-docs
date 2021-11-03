@@ -1,22 +1,31 @@
 const effectjs = require('@effectai/effect-js')
 const eosjs = require('eosjs')
 const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig')
+const process = require('process')
 
+console.log('Starting...')
 
-
-const account_name = 'pixeos1gswap'
-const account_permission = 'active'
-const account_id = 11
-
-const defaultPrivateKey = ""; // pixeos1gswap@active
-const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
-
-const efx = new effectjs.EffectClient('testnet', { network: 'kylin', 
-                                                   host: 'https://api.kylin.alohaeos.com:443', 
-                                                   signatureProvider: signatureProvider
-});
+if (process.argv.length < 3) {
+    console.log('Usage: node index.js <privateKey>')
+}
 
 (async () => {
+    
+    const defaultPrivateKey = process.argv[2]; // pixeos1gswap@active
+    const account_name = 'pixeos1gswap'
+    const account_permission = 'active'
+    const account_id = 11
+    
+    const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
+    const effectConfig = { network: 'kylin', host: 'https://api.kylin.alohaeos.com:443' };
+    
+    const efx = new effectjs.EffectClient('testnet', effectConfig);
+    
+    // Call basic functionality here, such as: 
+
+    const efxAccount = await efx.connectAccount(signatureProvider);
+    console.log(efxAccount)
+
     const openacc = await efx.account.openAccount(account_name, account_permission)
     console.log(openacc)
     const vaccount = await efx.account.getVAccountByName(account_name)
@@ -91,8 +100,9 @@ const efx = new effectjs.EffectClient('testnet', { network: 'kylin',
         ]
     }
 
-    console.log(`Content: \n\n${JSON.stringify(content, null, 4)}`)
-    //   createBatch = async (campaignOwner: string, campaignId: number, batchId: number, content, repetitions, options): Promise<object> => {
-    const batch = await efx.force.createBatch(account_name, campaign.id, campaign.rows.length, JSON.stringify(content.tasks), 3, {})
+    // console.log(`Content: \n\n${JSON.stringify(content, null, 4)}`)
+    const repetitions = 3
+    const batch = await efx.force.createBatch(account_name, campaign.id, campaign.rows.length, content, repetitions, {})
     console.log(batch)
 })();
+
