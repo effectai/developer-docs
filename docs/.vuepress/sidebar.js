@@ -7,7 +7,7 @@ module.exports = [
 
 
     {
-        title: "Quickstart 🚀",
+        title: "🚀 Quickstart",
         collapsable: false,
         sidebarDepth: 1,
         path: "/quickstart/",
@@ -19,7 +19,21 @@ module.exports = [
     },
 
     {
-        title: "SDK 🥠",
+        title: "💬 Effect Network",
+        collapsable: false,
+        sidebarDepth: 1,
+        path: "/effect_network/",
+        children:[
+            // "",
+            // "/quickstart/gui" // Can be added later, for now it the docs need to be clean.
+            // "/quickstart/bsc_account"
+        ]
+    },
+
+    
+
+    {
+        title: "🥠 SDK",
         collapsable: false,
         sidebarDepth: 1,
         path: "/sdk/",
@@ -40,7 +54,7 @@ module.exports = [
     // },
 
     {
-        title: "Effect Network 🎆",
+        title: "🌠 Home",
         collapsable: false,
         sidebarDepth: 1,
         path: "/",
