@@ -1,6 +1,3 @@
-# Effect Network
-
-<!-- ![Effect Network](~@alias/logo.png) -->
 ![Effect Network](./assets/logo.png)
 
 Unleash the power of Effect Force. 🔥
@@ -11,6 +8,13 @@ Tap into the power of the force and launch your dApp today!
 
  
 # EFX
+
+Get faucet tokens at the following link!
+
+:::info 
+Add information for users on how to get to the faucet.
+
+:::
 
 You can get EFX by following this link: [EFX](https://effect.network/token-page)
 
