@@ -24,7 +24,10 @@ module.exports = [
         sidebarDepth: 1,
         path: "/effect_network/",
         children:[
-            // "",
+            "",
+            "/effect_network/template",
+            "/effect_network/campaign",
+            "/effect_network/account",
             // "/quickstart/gui" // Can be added later, for now it the docs need to be clean.
             // "/quickstart/bsc_account"
         ]

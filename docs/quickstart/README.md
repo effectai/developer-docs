@@ -87,11 +87,11 @@ import 'https://unpkg.com/@effectai/effect-js/dist/index.js'
 Src Tag import:
 Using your favorite cdn js provider, you can import the Effect-SDK in the `<head>` tag of your html file.
 ```html
-<script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></>
+<script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></script>
 ```
 
-:::danger Name of the import
-The object name that you will be using to interact with the Effect-SDK is called `effectsdk`
+:::danger export name
+The name of the Effect-SDK is `effectsdk`
 :::
 <br>
 
@@ -99,16 +99,16 @@ The object name that you will be using to interact with the Effect-SDK is called
 The first step is to import and initialize the effectsdk client. Which will be the main object from which methods can be called in order to interact with the Effect Network. Import or require `@effectai/effect-js` and pass the name of the network you want to connect to.
 The constructor can take a configuration object, but the constructor will initialize with a default configuration object if no configuration object is passed. Take a look at [Effect-SDK Configuration](../sdk/README.md) for more information on the configuration object.
 It is useful, though, to pass a `web3` object so that the SDK has access to it. 
-The first parameter for the constructor is which network to use. At the moment, only testnet on `kylin` is supported. 
+The first parameter for the constructor is which network to use. At the moment, only testnet on `junglenet` is supported. 
 
 
 ```js
-const client = new effectsdk.EffectClient('kylin')
+const client = new effectsdk.EffectClient('testnet')
 ```
 ## Connect with burner wallet
 For this quickstart guide, we will be using a burner wallet. You can use the `createAccount()` method in order to generate a random keypair for you. Then it becomes possible to use `connectAccount()` method in order to use your burner wallet. 
 ```js
-const burnerWallet = client.createAccount();
+const burnerWallet = effectsdk.createAccount();
 effectsdk.connectAccount(burnerWallet).then(console.log).catch(console.error);
 ```
 
@@ -158,7 +158,7 @@ const uploadCampaignIpfs = {
 client.force.makeCampaign(campaignToIpfs, '11').then(console.log).catch(console.error)
 ```
 ### Visit Testnet 
-Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link and join your campaign to work on the tasks.
+Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link, sign in with your keypair and join your campaign to work on the tasks.
 
 ### Creating batches and uploading task data
 
