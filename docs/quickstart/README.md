@@ -109,7 +109,7 @@ const client = new effectsdk.EffectClient('kylin')
 For this quickstart guide, we will be using a burner wallet. You can use the `createAccount()` method in order to generate a random keypair for you. Then it becomes possible to use `connectAccount()` method in order to use your burner wallet. 
 ```js
 const burnerWallet = client.createAccount();
-const burnerAccount = await effectsdk.connectAccount(burnerWallet);
+effectsdk.connectAccount(burnerWallet).then(console.log).catch(console.error);
 ```
 
 ## Create Campaign
@@ -155,14 +155,14 @@ const uploadCampaignIpfs = {
   reward: 100        
 }
 
-const makeCampaignResponse = await client.force.makeCampaign(campaignToIpfs, '11')
+client.force.makeCampaign(campaignToIpfs, '11').then(console.log).catch(console.error)
 ```
 ### Visit Testnet 
 Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link and join your campaign to work on the tasks.
 
 ### Creating batches and uploading task data
 
-The campaign should be up and running now; the way we add data into the campaign is through batches. Every time new tasks are added, they are added as a batch. That way, the tasks are neatly organised. 
+The campaign should be up and running now; the way we add data into the campaign is through batches. Every time new tasks are added, they are added as a batch. That way, the tasks are neatly organized. 
 The task is already defined by the template as stated above, so now all that needs to be done is to pass the `place_holder` into the template every time it is presented to the worker. 
 
 This example relies on an image being loaded into the placeholder. This is done by passing a URL string into the image tag that is defined in the template. 
@@ -181,7 +181,10 @@ const content = {
     ]
 }
 
-const batch = await sdk.force.createBatch(campaign.id, batches.length, content, repetitions)
+const campaignid = '11'
+const batchid = '1'
+
+sdk.force.createBatch(campaignid, batchid, content, repetitions).then(console.log).catch(console.error)
 
 ```
 
@@ -190,7 +193,7 @@ When the batch is published, it will become visible to the workers, and they wil
 When a task is done within a batch, you will be able to retrieve the results using the following method. 
 
 ```js
-const taskResults = await client.force.getTaskSubmissionsForBatch(batches.length)
+client.force.getTaskSubmissionsForBatch(batchid).then(console.log).catch(console.error)
 ```
 
 ## Summary
