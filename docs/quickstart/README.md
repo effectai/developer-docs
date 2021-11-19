@@ -74,20 +74,20 @@ Using import:
 import * as effectsdk from '@effectai/effect-js';
 ```
 
-### Browser
+### Browser using relative path.
 Using import (Path needs to be relative) in your own Javascript code that you import at the end of your `<body>` tag in your HTML.
 ```js
 // Import from you local node_modules folder.
-import "/node_modules/@effectai/effect-js/dist/index.umd.js"
+import "/node_modules/@effectai/effect-js/dist/index.js"
 
 // import from unpkg
-import 'https://unpkg.com/@effectai/effect-js@0.0.34/dist/index.umd.js'
+import 'https://unpkg.com/@effectai/effect-js/dist/index.js'
 ```
 
 Src Tag import:
 Using your favorite cdn js provider, you can import the Effect-SDK in the `<head>` tag of your html file.
 ```html
-<script type="module" src="https://unpkg.com/@effectai/effect-js@0.0.34/dist/index.umd.js"></script>
+<script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></>
 ```
 
 :::danger Name of the import
