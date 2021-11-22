@@ -1,6 +1,3 @@
 # About Us
 
-Information about Effect network here.
-
-## Mission & Vision 🛩
-What does Effect Network want to achieve?
+The first Blockchain-based framework for the Future-of-Work. Access a global, on-demand, 24x7 scalable WorkForce.

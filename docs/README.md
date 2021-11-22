@@ -1,22 +1,20 @@
-![Effect Network](./assets/logo.png)
+<p align="center"><img src="https://effect.network/img/logo/logo.png" width="400px"></p>
 
 Unleash the power of Effect Force. 🔥
 Get access to the largest distributed workforce in the blockchain space.
 Need to label data? Need to translate text? Need to add subtitles/captions to your Youtube videos? Need people to work on your niche requirements?  
 Tap into the power of the force and launch your dApp today!
 
+---
+# EFX Testnet
 
- 
-# EFX
+Join our discord and use the faucet bot to get funds for testnet.
+[Effect Network Discord](https://discord.gg/bq4teBnH3V)
 
-Get faucet tokens at the following link!
+---
+# EFX Mainnet
 
-:::info 
-Add information for users on how to get to the faucet.
-
-:::
-
-You can get EFX by following this link: [EFX](https://effect.network/token-page)
+Buy EFX at the following link: [EFX](https://effect.network/token-page)
 
 Official Token Contracts
 BSC Token Contract:

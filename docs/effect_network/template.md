@@ -17,26 +17,31 @@ This is a template:
 The template will render into the following image:
 ![](./template.png)
 
+The worker is presented with an image that is loaded in via the placeholder annotation: `${variable_name}` and they are presented some kind of input field such as buttons in this case. But it could also be something else such as a textbox.
 
-## Break down
+They then submit the results which get posted right away to the blockchain. But there are more features when it comes to the template engine of Effect Network. So let's break it down
+
+## The Break Down
 
 As we can see, the template has different elements to is. The one showcased above is a simple example, but it can be much more complex than that. 
 One of our favorite use cases up until now that we've had is the polygon annotator 
 
-![](polygon.png)
+![Polygon Annotator](./polygon.png)
 
-As you can see it is also possible to add javascript to the template. 
-
-## How input fields are processed
+As you can see it is also possible to add javascript to the template. In order to make the whole template dynamic and make it a full fledged application within the the worker interface. 
 
 
 ## Placeholder
 
-Note the use of `${image_url}` in the template.
+Note the use of `${image_url}` in the template, the placeholde variable name can be  anything you want. You do need to make sure that when it is loaded into the html template it is valid. 
+
 
 This is the variable that will be replaced by the array of data that is provided later on.
 So later, the placeholder will be filled with `https://i.imgur.com/NP3BDFD.jpg` and rendered as the template below.
 Of course, you can pass any `image_url` that you choose; in this quickstart guide, we will be looking at how to use IPFS.
+
+## How input fields are processed
+
 
 ### How to encode json data
 
