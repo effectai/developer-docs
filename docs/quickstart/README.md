@@ -184,7 +184,7 @@ const content = {
 const campaignid = '11'
 const batchid = '1'
 
-sdk.force.createBatch(campaignid, batchid, content, repetitions).then(console.log).catch(console.error)
+client.force.createBatch(campaignid, batchid, content, repetitions).then(console.log).catch(console.error)
 
 ```
 
