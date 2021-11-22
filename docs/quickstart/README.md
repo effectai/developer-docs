@@ -98,8 +98,11 @@ The name of the Effect-SDK is `effectsdk`
 ### Initializing the Effect Client
 The first step is to import and initialize the effectsdk client. Which will be the main object from which methods can be called in order to interact with the Effect Network. Import or require `@effectai/effect-js` and pass the name of the network you want to connect to.
 The constructor can take a configuration object, but the constructor will initialize with a default configuration object if no configuration object is passed. Take a look at [Effect-SDK Configuration](../sdk/README.md) for more information on the configuration object.
-It is useful, though, to pass a `web3` object so that the SDK has access to it. 
-The first parameter for the constructor is which network to use. At the moment, only testnet on `junglenet` is supported. 
+The first parameter for the constructor is which network to use. At the moment, only testnet on `junglenet` is supported.
+
+:::tip
+The code snippets written for the docs assume that they will be executed within the node repl using version: v16.10.0.
+:::
 
 
 ```js
@@ -108,8 +111,14 @@ const client = new effectsdk.EffectClient('testnet')
 ## Connect with burner wallet
 For this quickstart guide, we will be using a burner wallet. You can use the `createAccount()` method in order to generate a random keypair for you. Then it becomes possible to use `connectAccount()` method in order to use your burner wallet. 
 ```js
+// Generate private key pair for burner wallet.
 const burnerWallet = effectsdk.createAccount();
-effectsdk.connectAccount(burnerWallet).then(console.log).catch(console.error);
+
+// Create the account based on the burnerwallet
+const burnerAccount = effectsdk.createAccount();
+
+// Connect Virtual Effect Account with burnerAccount
+await client.connectAccount(burnerWallet);
 ```
 
 ## Create Campaign
@@ -118,8 +127,6 @@ The next step now is to create a campaign object.
 This campaign object contains essential information such as; description, template, instructions, reward per task, example tasks. Creating a campaign is easy when you've managed to lay down the basic information.
 
 Use the example given below in order to create your own campaign object. 
-Use the `makeCampaign()` method in order to upload and publish your campaign to the blockchain.
-
 ```js
 const uploadCampaignIpfs = {
 
@@ -133,32 +140,49 @@ const uploadCampaignIpfs = {
   instructions: 'Identify all the happy tree friends!',  
 
   // The template that will be used for the tasks
-  template: `<div id="task">
+  template: `<div>
                 <image src='` + '${image_url}' + `'></image>
-                <h2>Image Classification</h2>
-                <option submit name="button-answer" type="button" :options="['Cat','Dog','Mechanical Turk','Other']" label="What do you see in the picture above?"></option>
-              </div>`,      
+                <h2>What do you see in the picture above? 🐸</h2>
+                <input type='radio' name='radio-answer' id="original" label=''>Stars 🤩</input><br>
+                <input type='radio' name='radio-answer' id="original" label=''>Mechanical Turk 😏</input><br>
+                <input type='radio' name='radio-answer' id="original" label=''>Dog 🤐</input> <br>
+                <input type='radio' name='radio-answer' id="original" label=''>Cat 😵</input><br>
+                <hr>
+                <button type="submit">Submit</button> 
+              </div>
+              <script></script>
+              <style></style>`,      
 
   // Campaign image
-  image: 'https://ipfs.image.store/ipfs/1234...xyz',    
+  image: 'https://ipfs.effect.ai/ipfs/bafkreiggnttdaxleeii6cdt23i4e24pfcvzyrndf5kzfbqgf3fxjryj5s4',  
 
     // The category of the campaign
   category: 'Image labeling',     
 
   // Example task that will prefill the task template
-  example_task: {'https://ipfs.image.store/ipfs/1234...xyz' },  
+  example_task: {'image_url': 'https://ipfs.effect.ai/ipfs/bafkreidrxwhqsxa22uyjamz7qq3lh7pv2eg3ykodju6n7cgprmjpal2oga'},
 
   // Version of the campaign
   version: 1,        
 
   // Amount of EFX to reward for completinga task
-  reward: 100        
+  reward: 42        
 }
 
-client.force.makeCampaign(campaignToIpfs, '11').then(console.log).catch(console.error)
+```
+
+Use the `makeCampaign()` method in order to upload and publish your campaign to the blockchain.
+```javascript
+const makeCampaign = client.force.makeCampaign(campaignToIpfs, '10')
+```
 ```
 ### Visit Testnet 
 Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link, sign in with your keypair and join your campaign to work on the tasks.
+
+### Getting funds
+Before we can continue creating a batch, you will need funds to create a batch.
+Join our discord and use the faucet bot to get funds.
+[Join the Effect Network Discord](https://discord.gg/bq4teBnH3V)
 
 ### Creating batches and uploading task data
 
@@ -167,7 +191,6 @@ The task is already defined by the template as stated above, so now all that nee
 
 This example relies on an image being loaded into the placeholder. This is done by passing a URL string into the image tag that is defined in the template. 
 So we will first create the task image URLs and then create the batch so that it can be published.
-
 
 Define the tasks (These tasks have already been uploaded to IPFS), create and publish the batch. 
 ```js
@@ -181,10 +204,13 @@ const content = {
     ]
 }
 
-const campaignid = '11'
-const batchid = '1'
+// Retrieve the campaign that was last created/
+const campaign = await client.force.getMyLastCampaign()
 
-client.force.createBatch(campaignid, batchid, content, repetitions).then(console.log).catch(console.error)
+// Retrieve the batches for this campaign.
+const batches = await client.force.getCampaignBatches(campaign.id)
+
+await client.force.createBatch(campaign.id, batches.length, content, repetitions)
 
 ```
 
@@ -193,7 +219,7 @@ When the batch is published, it will become visible to the workers, and they wil
 When a task is done within a batch, you will be able to retrieve the results using the following method. 
 
 ```js
-client.force.getTaskSubmissionsForBatch(batchid).then(console.log).catch(console.error)
+const submission = client.force.getTaskSubmissionsForBatch()
 ```
 
 ## Summary
