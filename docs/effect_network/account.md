@@ -3,7 +3,7 @@
 The Effect Network account system is completely decentralized. It's one of the pieces we are proud of. It's built in such a way that any user can log in using the keys of their EOS or BSC keypairs. Users can log in and interact with Effect Network without any central party authorizing their access to the platform.
 
 All you need to start is an EOS account, 
-[[TODO]]  Add information here about how to open an eos account, should we add ad information here about how to open an account with
+Add information here about how to open an eos account, should we add ad information here about how to open an account with
 
 Or an BSC account, which can be generated for you when signing up for the first time.
 

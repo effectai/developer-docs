@@ -168,13 +168,11 @@ const uploadCampaignIpfs = {
   // Amount of EFX to reward for completinga task
   reward: 42        
 }
-
 ```
 
 Use the `makeCampaign()` method in order to upload and publish your campaign to the blockchain.
 ```javascript
 const makeCampaign = client.force.makeCampaign(campaignToIpfs, '10')
-```
 ```
 ### Visit Testnet 
 Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link, sign in with your keypair and join your campaign to work on the tasks.
