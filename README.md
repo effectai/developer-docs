@@ -5,7 +5,7 @@ https://developer.effect.network
 Effect Network Developer Documentation
 The future of work
 
-These docs are the source of truth for the dx eveloper documentation. 
+These docs are the source of truth for the developer documentation. 
 Including information of how to use the SDK, how the different users work on the platform. 
 How to create tasks, templates, campaigns, batches. 
 
@@ -20,10 +20,5 @@ npm run docs:dev
 
 
 ## Contribution Guide
-please read our style and [contribution guides](.github/CONTRIBUTING.md). 
 Feel free to submite a Pull Request.
 
-## Code of Conduct
-
-You can take a look at our code of conduct here: [CODE OF
-CONDUCT](.github/CODE_OF_CONDUCT.md)
