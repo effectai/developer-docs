@@ -5,7 +5,7 @@ https://developer.effect.network
 Effect Network Developer Documentation
 The future of work
 
-These docs are the source of truth for the dx eveloper documentation. 
+These docs are the source of truth for the developer documentation. 
 Including information of how to use the SDK, how the different users work on the platform. 
 How to create tasks, templates, campaigns, batches. 
 
