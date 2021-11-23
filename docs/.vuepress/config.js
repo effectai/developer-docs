@@ -14,7 +14,7 @@ module.exports = {
     ],
     host: '0.0.0.0',
     port: '8080',
-    base: '/developer-docs/',
+    base: '',
     plugins: [
         '@vuepress/active-header-links'
     ],
