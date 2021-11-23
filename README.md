@@ -22,7 +22,3 @@ npm run docs:dev
 ## Contribution Guide
 Feel free to submite a Pull Request.
 
-## Code of Conduct
-
-You can take a look at our code of conduct here: [CODE OF
-CONDUCT](.github/CODE_OF_CONDUCT.md)
