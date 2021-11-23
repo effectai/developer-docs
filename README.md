@@ -20,7 +20,6 @@ npm run docs:dev
 
 
 ## Contribution Guide
-please read our style and [contribution guides](.github/CONTRIBUTING.md). 
 Feel free to submite a Pull Request.
 
 ## Code of Conduct
