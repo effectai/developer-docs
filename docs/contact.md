@@ -1,9 +1,8 @@
 # Contact
 
-Contact information here.
+If you have any questions, requests, or need support, please join the Discord Developer Server: [Effect Network Discord](https://discord.gg/bq4teBnH3V).
 
-Contact Us
-If you have any [questions](https://effect.network/faqs), requests, or need support, please join the Discord Developer Server: [Effect Network Discord](https://discord.gg/bq4teBnH3V).
+You can also join one of our online communities:
 
 <ul class="menu-list">
 <li><a href="https://twitter.com/effectaix" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
