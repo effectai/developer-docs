@@ -62,7 +62,7 @@ To start, import the Effect-SDK using either `require` or `import` as needed.
 
 ### Import the Effect-SDK
 
-Depending on the environment that you are working in you will need to import the sdk in different ways. 
+Depending on the environment that you are working in, you will need to import the SDK in different ways. 
 ### Node
 Using require:
 ```js
@@ -90,8 +90,8 @@ Using your favorite cdn js provider, you can import the Effect-SDK in the `<head
 <script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></script>
 ```
 
-:::danger export name
-The name of the Effect-SDK is `effectsdk`
+:::warning export name
+The name of the export is `effectsdk`
 :::
 <br>
 
@@ -118,7 +118,7 @@ const burnerWallet = effectsdk.createAccount();
 const burnerAccount = effectsdk.createAccount();
 
 // Connect Virtual Effect Account with burnerAccount
-await client.connectAccount(burnerWallet);
+const effectAccount = await client.connectAccount(burnerWallet);
 ```
 
 ## Create Campaign
@@ -175,13 +175,31 @@ Use the `makeCampaign()` method in order to upload and publish your campaign to 
 const makeCampaign = client.force.makeCampaign(campaignToIpfs, '10')
 ```
 ### Visit Testnet 
-Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link, sign in with your keypair and join your campaign to work on the tasks.
+Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link, sign in with your keypair and join your campaign to work on the tasks. Don't forget to use the keypair that you generated in the begining of this tutorial.
 
 ### Getting funds
 Before we can continue creating a batch, you will need funds to create a batch.
-Join our discord and use the faucet bot to get funds.
-[Join the Effect Network Discord](https://discord.gg/bq4teBnH3V)
+<!-- Show how to get the name that you will need in order to get your tokens. -->
+You will need to provide your Virtual Effect Account name in order to get your tokens. When you create your account, using the `connectAccount()` you will be able to see your account name. 
 
+```js
+console.log(effectAccount)
+```
+
+```json
+ effectAccount: {
+  "accountName": "bd9b69af4f6ed393e9c4ba7c503e80ea2fbfa1fb", // This is the account name.
+  "address": "0xe345E6eD90333135288B780A37672F2d98cC9E3B",
+  "privateKey": "0x123...321"
+}
+```
+
+Join our discord and use the faucet bot to get funds. Find the Hackathon section, and join the `faucet` channel to find more information to get funds. 
+<!-- Find the Effect.AI Bot and use the command `!get_tokens <account_name>` to get your funds. -->
+
+:::tip Get tokens from the faucet. 💸
+### [Join the Effect Network Discord](https://discord.gg/bq4teBnH3V)
+:::
 ### Creating batches and uploading task data
 
 The campaign should be up and running now; the way we add data into the campaign is through batches. Every time new tasks are added, they are added as a batch. That way, the tasks are neatly organized. 
