@@ -223,10 +223,7 @@ const content = {
 // Retrieve the campaign that was last created/
 const campaign = await client.force.getMyLastCampaign()
 
-// Retrieve the batches for this campaign.
-const batches = await client.force.getCampaignBatches(campaign.id)
-
-await client.force.createBatch(campaign.id, batches.length, content, repetitions)
+await client.force.createBatch(campaign.id, content, repetitions)
 
 ```
 
@@ -235,7 +232,7 @@ When the batch is published, it will become visible to the workers, and they wil
 When a task is done within a batch, you will be able to retrieve the results using the following method. 
 
 ```js
-const submission = client.force.getTaskSubmissionsForBatch()
+const submission = client.force.getTaskSubmissionsForBatch(batch.batch_id)
 ```
 
 ## Summary
