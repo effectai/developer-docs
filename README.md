@@ -20,5 +20,5 @@ npm run docs:dev
 
 
 ## Contribution Guide
-Feel free to submite a Pull Request.
+Feel free to submit a Pull Request.
 
