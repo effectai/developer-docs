@@ -42,139 +42,116 @@ Typescript is optional, but the Effect-SDK does provide types for those that enj
 Start the project by creating a directory, then go to that directory.
 
 ```bash
-mkdir awesome-efx-project
-cd awesome-efx-project
+  mkdir awesome-efx-project
+  cd awesome-efx-project
 ```
 
-Afterwards create your main javascript file and main html file inside of your project directory.
+Afterward, create your main javascript file and main html file inside of your project directory.
 
 ```bash
-touch index.js
-touch index.html
+  touch index.js
+  touch index.html
 ```
 
 ### Creating package.json
 
-When you are inside of your project directory, initialize npm or yarn. either one will help you to create a `package.json`.
+When you are inside of your project directory, initialize npm or yarn. Either one will help you to create a `package.json`.
 
-<code-group>
-<code-block title="NPM">
+With Npm:
 ```bash
 npm init
 ```
-</code-block>
 
-<code-block title="YARN">
+With Yarn:
 ```bash
 yarn init
 ```
-</code-block>
-</code-group>
 
 ### Installing the Effect-SDK
 In your project folder, you can now start installing packages that will assist you in your journey.
 
-<code-group>
-<code-block title="NPM">
+With NPM
 ```bash
 npm install @effectai/effect-js
 ```
-</code-block>
 
-<code-block title="YARN">
+Or with Yarn
 ```bash
 yarn add @effectai/effect-js
 ```
-</code-block>
-</code-group>
 
 Also, we will install an additional package called http-server, where we can serve our project.`
 
-<code-group>
-<code-block title="NPM">
+With Npm:
 ```bash
 npm install http-server --save-dev
 ```
-</code-block>
 
-<code-block title="YARN">
+With Yarn:
 ```bash
 yarn add http-server --dev
 ```
-</code-block>
-</code-group>
 
 You can serve your project with the following command.
 
-<code-group>
-<code-block title="NPM">
 ```bash
 npx http-server -c -1
 ```
-</code-block>
-</code-group>
 
 ### Importing the Effect-SDK
 
 Depending on the environment that you are working in, you will need to import the SDK in different ways.
+
 #### Node
-<br>
 
-<code-group>
-<code-block title="CommonJS">
+For CommonJS:
 ```js
-const effectsdk = require('@effectai/effect-js');
+  const effectsdk = require('@effectai/effect-js');
 ```
-</code-block>
 
-<code-block title="ES6">
+For ES-Modules
 ```js
 import * as effectsdk from '@effectai/effect-js';
 ```
-</code-block>
-</code-group>
 
 #### Browser
 When using the Effect SDK in the browser, import the SDK from the `node_modules` directory in your project to your main html file. While we are at it, we will add our main javascript file to the html file.
 
-<code-group>
-<code-block title="index.html">
 ```html
-<!DOCTYPE html encoding>
-<html lang="en">
-  <head>
-    <title>My Effect Project</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="./node_modules/@effectai/effect-js/dist/index.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js">
-    </script>
-  </head>
-  <body>
-    ...
-    <script src="./index.js"></script>
-  </body>
-</html>
+  <!DOCTYPE html encoding>
+  <html lang="en">
+    <head>
+      <title>My Effect Project</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="./node_modules/@effectai/effect-js/dist/index.js">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js">
+      </script>
+    </head>
+    <body>
+      ...
+      <script src="./index.js"></script>
+    </body>
+  </html>
 ```
-</code-block>
-</code-group>
 
-:::warning
+:::tip
 The name of the export is `effectsdk` and the import path of the sdk has to be **relative**.
+
+It is also possible to import `effectsdk` from unpkg:
+```html
+<script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></script>
+```
 :::
-<br>
+
 
 ### Initializing the Effect Client
 Now that we have installed the Effect SDK, it is time to initialize the EffectClient. Which will be the main object from which methods can be called in order to interact with the Effect Network.
 
-<code-group>
-<code-block title="index.js">
 ```js
-const client = new effectsdk.EffectClient('jungle');
+  const client = new effectsdk.EffectClient('jungle');
 ```
-</code-block>
-</code-group>
 
 The constructor can take a configuration object, but the constructor will initialize with a default configuration object if no configuration object is passed. Take a look at [Effect-SDK Configuration](../sdk/README.md) for more information on the configuration object.
 The first parameter for the constructor is which network to use. At the moment, only **Jungle3 Testnet** is supported.
@@ -186,39 +163,27 @@ The code snippets written for the docs assume that they will be executed within 
 ## Connect with burner wallet
 For this quickstart guide, we will be using a burner wallet. You can use the `createAccount()` method in order to generate a random keypair for you. If you already have a keypair, you could use the private key to instantiate the bsc account with it by using `createAccount('privateKey')`.
 
-<code-group>
-<code-block title="index.js">
 ```js
-// Instantiating bsc account.
-const account = effectsdk.createAccount();
+  // Instantiating bsc account.
+  const account = effectsdk.createAccount();
 
-// Or: instantiate bsc account from existing private key.
-const account = effectsdk.createAccount('privateKey');
+  // Or: instantiate bsc account from existing private key.
+  const account = effectsdk.createAccount('yourPrivateKeyHere');
 ```
-</code-block>
-</code-group>
 
 After creating your account, you have to add it to your wallet. With `createWallet(account)` you can create a wallet with your account.
 
-<code-group>
-<code-block title="index.js">
 ```js
 // Generate web3 instance from account.
 const web3 = effectsdk.createWallet(account);
 ```
-</code-block>
-</code-group>
 
 After creating your wallet, all you have to do is connect your account to the SDK by passing the web3 object that gets returned by the `createWallet()` method to `connectAccount()`.
 
-<code-group>
-<code-block title="index.js">
 ```js
 // Connect your account to the Effect Client.
 const effectAccount = await client.connectAccount(web3);
 ```
-</code-block>
-</code-group>
 
 ## Create Campaign
 
@@ -227,8 +192,6 @@ This campaign object contains essential information such as; description, templa
 
 Use the example given below in order to create your own campaign object. 
 
-<code-group>
-<code-block title="index.js">
 ```js
 const uploadCampaignIpfs = {
 
@@ -273,26 +236,20 @@ const uploadCampaignIpfs = {
   reward: 42        
 }
 ```
-</code-block>
-</code-group>
 
 Use the `makeCampaign()` method in order to upload and publish your campaign to the blockchain.
 
-<code-group>
-<code-block title="index.js">
 ```javascript
 const makeCampaign = client.force.makeCampaign(campaignToIpfs, '10')
 ```
-</code-block>
-</code-group>
 
 ### Visit Testnet 
-Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link, sign in with your keypair and join your campaign to work on the tasks. Don't forget to use the keypair that you generated in the begining of this tutorial.
+Visit [https://testnet.effect.network](https://testnet.effect.network) to see the campaign. Follow the link, sign in with your keypair and join your campaign to work on the tasks. Don't forget to use the keypair that you generated at the beginning of this tutorial.
 
 ### Getting funds
 Before we can continue creating a batch, you will need funds to create a batch.
 <!-- Show how to get the name that you will need in order to get your tokens. -->
-You will need to provide your Virtual Effect Account name in order to get your tokens. See [Connect with burner wallet](https://developer.effect.network/quickstart/#connect-with-burner-wallet) on how to create an Virtual Effect Account. you will be able to see your account name with the following code. 
+You will need to provide your Virtual Effect Account name in order to get your tokens. See [Connect with burner wallet](https://developer.effect.network/quickstart/#connect-with-burner-wallet) on how to create an Virtual Effect Account. You will be able to see your account name with the following code. 
 
 ```js
 console.log(effectAccount)
@@ -322,8 +279,6 @@ So we will first create the task image URLs and then create the batch so that it
 
 Define the tasks (These tasks have already been uploaded to IPFS), create and publish the batch. 
 
-<code-group>
-<code-block title="index.js">
 ```js
 const content = {
     'tasks': [
@@ -339,23 +294,17 @@ const campaign = await client.force.getMyLastCampaign()
 
 await client.force.createBatch(campaign.id, content, repetitions)
 ```
-</code-block>
-</code-group>
 
 ## Wait for response
 When the batch is published, it will become visible to the workers, and they will start working on it as soon as possible. Completion time can vary a bit depending on the type of the campaign and campaign qualifications. 
 When a task is done within a batch, you will be able to retrieve the results using the following method. 
 
-<code-group>
-<code-block title="index.js">
 ```js
 const submission = client.force.getTaskSubmissionsForBatch(batch.batch_id)
 ```
-</code-block>
-</code-group>
 
 ## Summary
-You now know how to setup the SDK, create an account, connect said account it to the SDK, create campaigns, batches, tasks and retrieve submissions from said tasks. 
+You now know how to set up the SDK, create an account, connect said account to the SDK, create campaigns, batches, tasks and retrieve submissions from said tasks. 
 
 That's it! the following things are needed to create a campaign:
 - Installing the Effect-SDK
