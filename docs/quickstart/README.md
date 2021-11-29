@@ -162,6 +162,10 @@ When using the Effect SDK in the browser, import the SDK from the `node_modules`
 
 :::warning
 The name of the export is `effectsdk` and the import path of the sdk has to be **relative**.
+You can also use the unpkg.com to get the latest version of the Effect-SDK.
+```html
+<script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></script>
+```
 :::
 <br>
 
