@@ -130,7 +130,7 @@ When using the Effect SDK in the browser, import the SDK from the `node_modules`
       </script>
     </head>
     <body>
-      ...
+      <!-- App here. -->
       <script src="./index.js"></script>
     </body>
   </html>
@@ -239,7 +239,7 @@ const uploadCampaignIpfs = {
 
 Use the `makeCampaign()` method in order to upload and publish your campaign to the blockchain.
 
-```javascript
+```js
 const makeCampaign = client.force.makeCampaign(campaignToIpfs, '10')
 ```
 
