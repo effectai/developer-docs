@@ -15,7 +15,8 @@ module.exports = {
     port: '8080',
     base: '',
     plugins: [
-        '@vuepress/active-header-links'
+        '@vuepress/active-header-links',
+        'one-click-copy'
     ],
     // theme: 'antdocs',
     themeConfig: {
