@@ -234,3 +234,6 @@ npm install
 npm link path/to/sdk
 npm run dev
 ```
+
+# Conclusion
+Congratulations we now have a local version of all the main components to run Effect Network!

@@ -19,6 +19,18 @@ module.exports = [
     },
 
     {
+        title: "🌽 Local",
+        collapsable: false,
+        sidebarDepth: 1,
+        path: "/local/",
+        children:[
+            // "",
+            // "/quickstart/gui" // Can be added later, for now it the docs need to be clean.
+            // "/quickstart/bsc_account"
+        ]
+    },
+
+    {
         title: "💬 Effect Network",
         collapsable: false,
         sidebarDepth: 1,
