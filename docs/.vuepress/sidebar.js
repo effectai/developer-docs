@@ -8,8 +8,8 @@ module.exports = [
 
     {
         title: "🚀 Quickstart",
-        collapsable: false,
-        sidebarDepth: 1,
+        collapsable: true,
+        sidebarDepth: 0,
         path: "/quickstart/",
         children:[
             // "",
@@ -20,8 +20,8 @@ module.exports = [
 
     {
         title: "🌽 Local",
-        collapsable: false,
-        sidebarDepth: 1,
+        collapsable: true,
+        sidebarDepth: 0,
         path: "/local/",
         children:[
             // "",
@@ -32,11 +32,10 @@ module.exports = [
 
     {
         title: "💬 Effect Network",
-        collapsable: false,
-        sidebarDepth: 1,
+        collapsable: true,
+        sidebarDepth: 0,
         path: "/effect_network/",
         children:[
-            "",
             "/effect_network/template",
             "/effect_network/campaign",
             "/effect_network/account",
@@ -49,8 +48,8 @@ module.exports = [
 
     {
         title: "🥠 SDK",
-        collapsable: false,
-        sidebarDepth: 1,
+        collapsable: true,
+        sidebarDepth: 0,
         path: "/sdk/",
         children:[
             // "/sdk/"
@@ -60,8 +59,8 @@ module.exports = [
     // Can be added later, for now the docs need to be as clean as possible.
     // {
     //     title: "Blockchain",
-    //     collapsable: false,
-    //     sidebarDepth: 1,
+    //     collapsable: true,
+    //     sidebarDepth: 0,
     //     path: '/blockchain/',
     //     children: [
     //         // "/blockchain/"
@@ -69,12 +68,11 @@ module.exports = [
     // },
 
     {
-        title: "🌠 Home",
-        collapsable: false,
-        sidebarDepth: 1,
-        path: "/",
+        title: "🌠 About",
+        collapsable: true,
+        sidebarDepth: 0,
+        path: "/about/",
         children:[
-            "",
             "glossary",
             "contact",
             "about"
