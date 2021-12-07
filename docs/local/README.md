@@ -9,7 +9,6 @@ The third part will focus on deploying the relayer; this is the interface betwee
 This reminds me that we might need to look into deploying a BSC testnet as well, or we'll need to look at using an existing one. 
 It feels kind of silly to deploy a new blockchain for every new project.
 
-Lastly, we will finish up with using the effect-js library to develop our own application.f
 
 
 [TODO]: # (# Docker Images Provide docker images that users can pull and run on their machine.)
