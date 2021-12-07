@@ -285,7 +285,7 @@ Use the `makeCampaign()` method in order to upload and publish your campaign to 
 <code-group>
 <code-block title="index.js">
 ```javascript
-const makeCampaign = client.force.makeCampaign(campaignToIpfs, '10')
+const makeCampaign = await client.force.makeCampaign(campaignToIpfs, '10')
 ```
 </code-block>
 </code-group>
@@ -352,7 +352,7 @@ When a task is done within a batch, you will be able to retrieve the results usi
 <code-group>
 <code-block title="index.js">
 ```js
-const submission = client.force.getTaskSubmissionsForBatch(batch.batch_id)
+const submission = await client.force.getTaskSubmissionsForBatch(batch.batch_id)
 ```
 </code-block>
 </code-group>
