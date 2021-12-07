@@ -14,10 +14,10 @@ Lastly, we will finish up with using the effect-js library to develop our own ap
 
 [TODO]: # (# Docker Images Provide docker images that users can pull and run on their machine.)
 
-# EOS
+## EOS
 EOS is where the smart contract logic will be deployed, so we'll focus on this step first. 
 
-## EOSIO Binaries
+### EOSIO Binaries
 
 First we'll need to install the eosio binaries in order to run the local network and a client in order to interact with the network. 
 At the following link, you can find instructions on how to build it for your specific platform.
@@ -25,7 +25,7 @@ https://developers.eos.io/manuals/eos/v2.0/install/install-prebuilt-binaries
 
 Now you should be able to run `cleos` and `keosd` locally, which allows you to interact with your local version of the eos blockchain.
 
-## EOS Wallet
+### EOS Wallet
 This step is important, as it allows us to deploy the smart contract in a bit to the blockchain. 
 Follow this guide in order to create a wallet with the key pair.
 
@@ -39,14 +39,14 @@ Open wallet
 cleos wallet open
 ```
 
-## Run the EOS Local Testnet
+### Run the EOS Local Testnet
 
-Run keys // Is this needed?
+Run keosd
 ```bash
 keosd &
 ```
 
-To run a locla testnet, the following command will be used. using the `chain-api-plugin` and `history-api-plugin` which will allow us to interact with the blockchain and use a blockchain explorer.
+To run a local testnet, the following command will be used. using the `chain-api-plugin` and `history-api-plugin` which will allow us to interact with the blockchain and use a blockchain explorer.
 ```bash 
 nodeos \
 -e -p eosio \
@@ -75,7 +75,7 @@ pkill nodeos
 
 [Local Wallet](https://developers.eos.io/welcome/latest/getting-started-guide/local-development-environment/development-wallet)
 
-## Importing EOSIO
+### Importing EOSIO
 A default system account is provided when you instantiate a new local blockchain.
 
 
@@ -102,7 +102,7 @@ So now we managed to spin up our local eos blockchain and import the keys to the
 After we have imported the EOSIO account, we can create a new account for the contract. 
 We will need a new account for each contract. 
 
-# Creating an EOS accounts
+## Creating an EOS accounts
 
 Now that the main EOSIO account has been imported into our local wallet, and we have the local EOSIO blockchain running. We can start making accounts for each contract so that we can push our contracts to each of them.
 
@@ -196,7 +196,7 @@ Create the token supply.
 cleos push action effect.token create '[ "effect", "1000000.0000 EFX" ]' -p effect.token@active
 ```
 
-# SDK
+## SDK
 Clone the SDK and `cd` into it. Change the SignatureProvider for the local environment with the private_key for your relayer account.
 
 ```bash
@@ -211,7 +211,7 @@ Now build the SDK so that the local version of the frontend can interact with th
 npm run build:cjs
 ```
 
-# Relayer
+## Relayer
 Clone the GitHub and start the relayer, install the dependencies and then start the relayer using local configuration.
 
 ```bash
@@ -220,7 +220,7 @@ cd vaccount-relayer
 npm install 
 node index.js local
 ```
-# FrontEnd
+## FrontEnd
 Clone and start up the Force-Frontend. The force frontend will display information about campaigns and tasks. After you have adjusted the 
 ```bash
 git clone https://github.com/effectai/force-frontend-new
@@ -236,7 +236,7 @@ npm link path/to/effect-js
 npm run dev
 ```
 
-# Sending yourself.
+## Get Funds
 In order to do transactions on the local network, we need to send ourselves some EFX. This is not required for all actions but is required for making batches, for example.
 
 Using the frontend, you can register a new account, use the generated account name in order to send yourself funds  using the following command:
@@ -245,5 +245,5 @@ cleos push action effect.token issue '[ "yourAccountId", "1.0000 EFX", "yourMemo
 ```
 
 
-# Conclusion
+## Conclusion
 Congratulations, we now have a local version of all the main components to run Effect Network! It is now possible to make campaigns, create batches, make tasks, pay for the tasks and get paid doing the tasks. 
