@@ -1,5 +1,12 @@
 # Local Deployment
 
+This documentation is intended for local development and testing.
+
+# Quick and Easy
+The quick and easy way is to use the local deployment scripts provided at [GitHub.com/effectai/effect-network/scripts](https://github.com/effectai/effect-network/tree/master/scripts).
+
+# Detailed Instructions
+
 The first is getting started with EOS, which is the blockchain where the smart contract logic is deployed.
 So we need to run a local network, retrieve the contracts and deploy them locally.
 
@@ -33,17 +40,12 @@ Create a local wallet, save the password in the `local.wallet` file. Afterwards 
 cleos wallet create --file default.wallet 
 ```
 
-Open wallet
+Open wallet and unlock
 ```bash
 cleos wallet open
+cleos wallet unlock --password $(cat local.wallet)
 ```
-
 ### Run the EOS Local Testnet
-
-Run keosd
-```bash
-keosd &
-```
 
 To run a local testnet, the following command will be used. using the `chain-api-plugin` and `history-api-plugin` which will allow us to interact with the blockchain and use a blockchain explorer.
 ```bash 
@@ -56,7 +58,7 @@ nodeos \
 --access-control-allow-headers="*" \
 --http-validate-host=false \
 --delete-all-blocks \
-> nodeos.log 2>&1 &
+> nodeos.log 2>&1 & 
 ```
 
 Check to see if nodeos is running at `localhost:8888`.
@@ -75,13 +77,7 @@ pkill nodeos
 [Local Wallet](https://developers.eos.io/welcome/latest/getting-started-guide/local-development-environment/development-wallet)
 
 ### Importing EOSIO
-A default system account is provided when you instantiate a new local blockchain.
-
-
-`eosio` is the name of the account.
-Will we deploy the contracts to this account?
-
-The private key for this account is the following:
+A default system account is provided when you instantiate a new local blockchain, `eosio` is the name of the account. The private key for this account is the following:
 `5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3`
 
 :::danger
@@ -105,7 +101,7 @@ We will need a new account for each contract.
 
 Now that the main EOSIO account has been imported into our local wallet, and we have the local EOSIO blockchain running. We can start making accounts for each contract so that we can push our contracts to each of them.
 
-Create an account for the contract using the key of the eosio account. [Note the naming convention for EOSIO](https://developers.eos.io/manuals/eosio.cdt/v1.8/best-practices/naming-conventions). 
+Create an account for the contract using the key of the eosio account, using the key for the `eosio` account.
 
 #### 1. effect.force
 Effect Network contract with core functionalities for campaigns and tasks.
@@ -125,15 +121,12 @@ Effect Network token used for paying for tasks.
 cleos create account eosio effect.token EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 ```
 
-### 4. effect.relay
+#### 4. effect.relay
 This is needed for the relayer account for the EOS <=> BSC relayer
 ```bash
 cleos create account eosio effect.relay EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 ```
-
-
 Now we should be able to push the contract to the newly created address.
-
 
 ## Downloading the Smart Contract
 [TODO]: # (Take a look at the GitHub repo for effect network smart contracts. There seems to be a docker image that we can use or at least a script that makes the process a bit easier. 
@@ -185,14 +178,23 @@ cleos --url http://localhost:8888 set contract effect.accnt effect.accnt --abi e
 
 ## Pushing EOS actions to get the Rube Goldberg machine started.
 
-Create a v-account for the relayer.
+Initialize the effect.force contract.
 ```bash
-cleos push action effect.accnt open '{ "acc": ["name", "effect.relay"], "symbol": { "contract": "eosio.token", "sym": "4,EFX" }, "payer": "eosio" }' -p eosio@active
+cleos push action effect.force init '[ "effect.accnt" ]' -p effect.force@active
+```
+
+Create a v-account for the relayer and for effect.admin
+```bash
+cleos push action effect.accnt open '{ "acc": ["name", "effect.force"], "symbol": { "contract": "effect.token", "sym": "4,EFX" }, "payer": "eosio" }' -p eosio@active
+
+cleos push action effect.accnt open '{ "acc": ["name", "effect.admin"], "symbol": { "contract": "effect.token", "sym": "4,EFX" }, "payer": "eosio" }' -p eosio@active
+
 ```
 
 Create the token supply.
 ```bash
-cleos push action effect.token create '[ "effect", "1000000.0000 EFX" ]' -p effect.token@active
+cleos push action effect.token create '[ "effect.admin", "1000000.0000 EFX" ]' -p effect.token@active
+cleos push action effect.token issue '[ "effect.admin", "50000.0000 EFX", "m" ]' -p effect.admin@active
 ```
 
 ## SDK
@@ -200,6 +202,7 @@ Clone the SDK and `cd` into it. Change the SignatureProvider for the local envir
 
 ```bash
 git clone https://github.com/effectai/effect-js
+cd effect-js
 npm install
 ```
 
@@ -217,31 +220,30 @@ Clone the GitHub and start the relayer, install the dependencies and then start 
 git clone https://github.com/effectai/vaccount-relayer
 cd vaccount-relayer
 npm install 
-node index.js local
+node index.js local &
 ```
 ## FrontEnd
-Clone and start up the Force-Frontend. The force frontend will display information about campaigns and tasks. After you have adjusted the 
+Clone and start up the Force-Frontend. The force frontend will display information about campaigns and tasks. 
 ```bash
 git clone https://github.com/effectai/force-frontend-new
-```
-
-Now `cd` into the created folder, find the `.env.development` file and comment out the _Local_ configuration variables and comment the _Jungle_ or _Kylin_ configuration variables.
-
-Now we can install and run the frontend.
-
-```bash
+cd force-frontend-new
+rm .env.development
+cp .env.local.development .env.development
 npm install
-npm link path/to/effect-js
+npm link ../path/to/effect-js
 npm run dev
 ```
 
 ## Get Funds
 In order to do transactions on the local network, we need to send ourselves some EFX. This is not required for all actions but is required for making batches, for example.
 
-Using the frontend, you can register a new account, use the generated account name in order to send yourself funds  using the following command:
+Using the frontend, you can register a new account, use the generated account name in order to send yourself funds  using the following command (remebmer to unlock your wallet):
 ```bash
-cleos push action effect.token issue '[ "yourAccountId", "1.0000 EFX", "yourMemo"]' -p eosio@active
+cleos push action effect.token transfer '["effect.admin", "effect.accnt", "1000.0000 EFX", "<YOUR_EFFECT_ACCOUNT_ID>"]' -p effect.admin@active
 ```
+
+# Local Blockchain explorer.
+You'll be able to use the local blockchain explorer to see the transactions that have been made on the local blockchain. Go to [local.bloks.io](https://local.bloks.io) and using the default provided values, you can see the transactions that have been made on the local blockchain.
 
 
 ## Conclusion
