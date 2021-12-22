@@ -2,6 +2,8 @@
 
 A template is simply some vanilla HTML that has a placeholder value that will be replaced with data when it is presented to the worker as a task. That's a bit of a mouthful; let's break it down.
 
+Please visit [effect.network/preview](https://effect.network/preview) to see and use an interactive template preview. You will be able to test your templates here as well. 
+
 Let's imagine we have an image classification campaign; we want to identify if there are cats in the picture. We present a picture to the worker, and it is their task to identify what is in the picture. They see an image and are provided a list of options to choose from. 
 
 

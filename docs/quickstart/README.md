@@ -46,7 +46,7 @@ mkdir awesome-efx-project
 cd awesome-efx-project
 ```
 
-Afterwards create your main javascript file and main html file inside of your project directory.
+Afterward, create your main javascript file and the main HTML file inside of your project directory.
 
 ```bash
 touch index.js
@@ -55,7 +55,7 @@ touch index.html
 
 ### Creating package.json
 
-When you are inside of your project directory, initialize npm or yarn. either one will help you to create a `package.json`.
+When you are inside of your project directory, initialize npm or yarn. Either one will help you to create a `package.json`.
 
 <code-group>
 <code-block title="NPM">
@@ -135,7 +135,7 @@ import * as effectsdk from '@effectai/effect-js';
 </code-group>
 
 #### Browser
-When using the Effect SDK in the browser, import the SDK from the `node_modules` directory in your project to your main html file. While we are at it, we will add our main javascript file to the html file.
+When using the Effect SDK in the browser, import the SDK from the `node_modules` directory in your project to your main HTML file. While we are at it, we will add our main javascript file to the HTML file.
 
 <code-group>
 <code-block title="index.html">
@@ -160,7 +160,7 @@ When using the Effect SDK in the browser, import the SDK from the `node_modules`
 </code-block>
 </code-group>
 
-:::warning
+:::warning Import/Export
 The name of the export is `effectsdk` and the import path of the sdk has to be **relative**.
 You can also use the unpkg.com to get the latest version of the Effect-SDK.
 ```html
