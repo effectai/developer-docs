@@ -7,7 +7,7 @@ Add information here about how to open an eos account, should we add ad informat
 
 Or an BSC account, which can be generated for you when signing up for the first time.
 
-Smart contracts handle all of the tr:::danger EFFECT NETWORK INTERNAL
+:::danger EFFECT NETWORK INTERNAL
 Figure out how to pass the template string with the `place_holder` value elegantly. 
 At the moment, the `place_holder` is appended to the template string.
 :::
