@@ -313,7 +313,7 @@ Join our discord and use the faucet bot to get funds. Find the Hackathon section
 Find the Effect.AI Bot and use the command `!get_tokens <account_name>` to get your funds.
 
 :::tip Get tokens from the faucet. 💸
-### [Join the Effect Network Discord](https://discord.gg/bq4teBnH3V)
+### [Join the Effect Network Discord](https://discord.gg/effectnetwork)
 :::
 ### Creating batches and uploading task data
 
