@@ -1,7 +1,7 @@
 <p><h> About Us 
 
 
-<b>Building the Future of Work We are building the Future of Work. Everyone says it, but it's true in our case: welcome to the first work platform that&rsquo;s completely decentralized and enables people to work from anywhere. Effect Network was established in 2017 by an amazing community and a team that&rsquo;s passionate about a decentralized future. What makes Effect tick is the EffectDAO, started in 2021, a community organization with the goal to grow Effect Network by supporting the development of projects in a socially responsible, inclusive, and transparent manner. The DAO is the mechanism that drives frictionless entry into Web3 space and the Future of Work. </b>
+<b>Building the Future of Work <br><br>We are building the Future of Work. Everyone says it, but it's true in our case: welcome to the first work platform that&rsquo;s completely decentralized and enables people to work from anywhere. Effect Network was established in 2017 by an amazing community and a team that&rsquo;s passionate about a decentralized future. What makes Effect tick is the EffectDAO, started in 2021, a community organization with the goal to grow Effect Network by supporting the development of projects in a socially responsible, inclusive, and transparent manner. The DAO is the mechanism that drives frictionless entry into Web3 space and the Future of Work. </b>
 
 Meet the team:</p>
 <div class="my-6" data-v-29d883e4="">
