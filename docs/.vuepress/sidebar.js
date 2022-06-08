@@ -75,7 +75,8 @@ module.exports = [
         children:[
             "glossary",
             "contact",
-            "about"
+            "about",
+            "roadmap"
         ]
     },
 ]
