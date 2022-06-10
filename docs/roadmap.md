@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 <h2><strong>Q2</strong></h2>
 <ul>
-<li><strong style="font-size: 14px;">Mainnet release of the new Effect Network</strong></li>
+<li><strong>Mainnet release of the new Effect Network</strong></li>
 <li><strong>Mobile app beta release</strong></li>
 <li><strong>Network fees implemented: fees go into the DAO</strong></li>
 <li><strong>Effect Ecosystem release</strong></li>
