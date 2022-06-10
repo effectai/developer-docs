@@ -1,5 +1,5 @@
-<h1><span style="color: #0000ff;">Roadmap 2022</span></h1>
-<p>&nbsp;</p>
+# Roadmap 2022
+
 <h2><strong>Q1</strong></h2>
 <ul>
 <li><strong>Beta release of the new Effect Force on testnet</strong></li>
