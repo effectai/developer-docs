@@ -1,30 +1,28 @@
 # Roadmap 2022
 
-<h2><strong>Q1</strong></h2>
-<ul>
-<li><strong>Beta release of the new Effect Force on testnet</strong></li>
-<li><strong>Project partnerships and task onboarding</strong></li>
-<li><strong>Release of the SDK</strong></li>
-</ul>
-<p>&nbsp;</p>
-<h2><strong>Q2</strong></h2>
-<ul>
-<li><strong>Mainnet release of the new Effect Network</strong></li>
-<li><strong>Mobile app beta release</strong></li>
-<li><strong>Network fees implemented: fees go into the DAO</strong></li>
-<li><strong>Effect Ecosystem release</strong></li>
-</ul>
-<h2><strong>Q3</strong></h2>
-<ul>
-<li><strong>Updates to the DAO: proposal for new voting and fee system</strong></li>
-<li><strong>High Guard selection system</strong></li>
-<li><strong>Users can add custom qualifications</strong></li>
-<li><strong>Deposit EFX from BSC</strong></li>
-</ul>
-<h2><strong>Q4</strong></h2>
-<ul>
-<li><strong>Effect Academy</strong></li>
-<li><strong>Notification system</strong></li>
-<li><strong>Hackathon and grants program</strong></li>
-<li><strong>In-app swapping via PancakeSwap or Defibox</strong></li>
-</ul>
+## Q1
+
+- **Beta release of the new Effect Force on testnet**
+- **Project partnerships and task onboarding**
+- **Release of the SDK**
+
+## Q2
+
+- **Mainnet release of the new Effect Network**
+- **Mobile app beta release**
+- **Network fees implemented: fees go into the DAO**
+- **Effect Ecosystem release**
+
+## Q3
+
+- **Updates to the DAO: proposal for new voting and fee system**
+- **High Guard selection system**
+- **Users can add custom qualifications**
+- **Deposit EFX from BSC**
+
+## Q4
+
+- **Effect Academy**
+- **Notification system**
+- **Hackathon and grants program**
+- **In-app swapping via PancakeSwap or Defibox**
