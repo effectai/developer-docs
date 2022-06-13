@@ -19,16 +19,17 @@ you.
 ### Q2 '22
 
 - **Mainnet release of the new Effect Network** [[⚙️](https://app.effect.network)]
-- **Mobile app beta release** [[⚙️](https://github.com/effectai/force-frontend-new/issues/150)]
 - **Network fees** [[⚙️](https://github.com/effectai/effect-network/issues/88)]
 - **Effect Ecosystem release** [[⚙️](https://effect.network/ecosystem)]
+- **implement decentralized Qualification System** ([⚙️](https://github.com/effectai/force-frontend-new/pull/142))
 
 ### Q3 '22
 
+- **Mobile app release** [[⚙️](https://github.com/effectai/force-frontend-new/issues/150)]
 - Updates to the DAO: proposal for new voting and fee system ([more](#updates-to-dao))
 - High Guard selection system ([more](#high-guard-election))
-- Users can add custom qualifications ([](https://github.com/effectai/force-frontend-new/issues/152))
-- Deposit EFX from BSC ([](https://github.com/effectai/force-frontend-new/issues/151))
+- Users can add custom qualifications ([more](https://github.com/effectai/force-frontend-new/issues/152))
+- Deposit EFX from BSC ([more](https://github.com/effectai/force-frontend-new/issues/151))
 
 ### Q4 '22
 
