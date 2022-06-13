@@ -36,7 +36,7 @@ you.
 - Effect Academy ([more](#effect-academy))
 - Notification system
 - Hackathon and grants program ([more](#hackathon-and-grants-program))
-- In-app swapping via PancakeSwap or Defibox ([more]#in-app-swapping)
+- In-app swapping via PancakeSwap or Defibox ([more](#in-app-swapping))
 
 ### QX
 
