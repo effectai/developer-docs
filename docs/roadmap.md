@@ -36,7 +36,7 @@ you.
 - Effect Academy ([more](#effect-academy))
 - Notification system
 - Hackathon and grants program
-- In-app swapping via PancakeSwap or Defibox
+- In-app swapping via PancakeSwap or Defibox ([more]#in-app-swapping)
 
 ### QX
 
@@ -62,3 +62,17 @@ machanism for people to enter and leave the HG.
 This is a system for the onboarding of new users on the platform. It should make
 it easy and fun for people to start earning on Effect Network, and at the same
 time train you in the required skills to work on specific tasks.
+
+#### In-App Swapping
+
+Before introducing FIAT on and off ramps, it needs to be easier for users to 
+connect their wallets and swap their funds to EFX and out. This process wil be done via an easy
+to use widget where users can swap in and out of other assets on BSC.
+
+#### Hackathon and grants program
+
+In order to promote more development of dApps on the Effect Network we will start a grants program.
+Where developers will be able to apply for a grant at the DAO, and funds will be distributed to the developer
+to help them get started developing, integrating their dApp.
+Furthermore the possibility to do another hackathon is being discussed. 
+
