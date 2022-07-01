@@ -37,7 +37,7 @@ This guide will help you migrate your earned qualifications from the "old" Effec
 ### Click on 'migrate'
 <img src="https://i.ibb.co/xHnqS1b/Stepmissing.png"
      alt="migrate"
-     style="float: left; margin-right: 10px; width: 70%"/> <br> 
+     style="float: left; margin-right: 10px; width: 70%"/> <br><br><br> 
      
 ### Confirm you want to migrate
 <img src="https://i.ibb.co/FKss9hS/stepnoidea.png"
