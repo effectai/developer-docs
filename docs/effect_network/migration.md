@@ -10,14 +10,16 @@ This guide will help you migrate your earned qualifications from the "old" Effec
      alt="Launch the app"
      style="float: left; margin-right: 10px; width: 30%"/> 
      <br> 
-     
+
+
 ### Click 'Join the Force'
 
 <img src="https://i.ibb.co/hYKfmqf/step2.png"
      alt="Join the Force"
      style="float: left; margin-right: 10px; width: 30%"/> 
      <br> 
-     
+
+
 ### Register by connecting your wallet
 
 <img src="https://i.ibb.co/HP3Hqmt/step3.png"
@@ -31,7 +33,8 @@ This guide will help you migrate your earned qualifications from the "old" Effec
      alt="Log in"
      style="float: left; margin-right: 10px; width: 30%"/> 
      <br> 
-     
+
+
 ### Click on 'Migrate your old qualifications'
 
 <img src="https://i.ibb.co/Ch1PL7g/step6.png"
@@ -45,7 +48,8 @@ This guide will help you migrate your earned qualifications from the "old" Effec
      alt="Connect"
      style="float: left; margin-right: 10px; width: 30%"/> 
      <br> 
-     
+
+
 ### Click on 'migrate'
 
 <img src="https://i.ibb.co/xHnqS1b/Stepmissing.png"
@@ -54,28 +58,32 @@ This guide will help you migrate your earned qualifications from the "old" Effec
      <br>
      <br>
      <br> 
-     
+
+
 ### Confirm you want to migrate
 
 <img src="https://i.ibb.co/FKss9hS/stepnoidea.png"
      alt="migrate"
      style="float: left; margin-right: 10px; width: 30%"/> 
      <br> 
-     
+
+
 ### The confirmation message will display
 
 <img src="https://i.ibb.co/ZKg027H/stepnoidea1.png"
      alt="confirmation message"
      style="float: left; margin-right: 10px; width: 30%"/> 
      <br> 
-     
+
+
 ### To check that it's successful, navigate to your Profile
 
 <img src="https://i.ibb.co/nBh7Gjs/stepnoidea2.png"
      alt="migrate"
      style="float: left; margin-right: 10px; width: 30%"/> 
      <br> 
-     
+
+
 ### Your limited-edition qualification for migrating will display
 
 <img src="https://i.ibb.co/hVJ3dt9/stepfinal.png"
