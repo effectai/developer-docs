@@ -21,7 +21,8 @@ you.
 - **Mainnet release of the new Effect Network** [[⚙️](https://app.effect.network)]
 - **Network fees** [[⚙️](https://github.com/effectai/effect-network/issues/88)]
 - **Effect Ecosystem release** [[⚙️](https://effect.network/ecosystem)]
-- **implement decentralized Qualification System** ([⚙️](https://github.com/effectai/force-frontend-new/pull/142))
+- **Implement decentralized Qualification System** ([⚙️](https://github.com/effectai/force-frontend-new/pull/142))
+- **Qualification migration tool deployment** (.[more].(https://medium.com/effect-ai/the-new-decentralized-effect-force-is-here-1f71a77ab8dc))
 
 ### Q3 '22
 
