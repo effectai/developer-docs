@@ -119,3 +119,13 @@ One of our favorite use cases up until now that we've had is the polygon annotat
 As you can see, it is also possible to add javascript to the template, in order to make the whole template dynamic and make it a full-fledged application within the worker interface. 
 
 So go forth an let your imagination run wild. 
+
+## Special functions
+
+If you need an input field in the template that does not get included in the task results, you can prefix it's `name` attribute with `FORCE_`. Example:
+
+```
+<input name="FORCE_gets-excluded" type="text" />
+```
+
+
