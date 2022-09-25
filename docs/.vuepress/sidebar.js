@@ -40,6 +40,7 @@ module.exports = [
             "/effect_network/campaign",
             "/effect_network/account",
             "/effect_network/migration",
+            "/effect_network/register"
             // "/quickstart/gui" // Can be added later, for now it the docs need to be clean.
             // "/quickstart/bsc_account"
         ]

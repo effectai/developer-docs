@@ -1,4 +1,8 @@
-# Approve your campaign
+# Approving dApp and Campaign
+
+With the Effect Network built on top of the blockchain and powered by developers around the world, we need to ensure that the dApps and campaigns are legitimate and not malicious. This is done by the Effect Network team and the community. These are the steps that you can take to register and approve your dApp or campaign.
+
+## Approve your campaign
 
 You will notice on the homepage of [Effect Force](http://app.effect.network) there is a toggle to switch between the campaigns that have been approved by the Effect Network team and those that have not. 
 
@@ -12,7 +16,7 @@ When you are ready to have your campaign approved, you can submit a pull request
 
 ---
 
-# Add your dApp to the Ecosystem
+## Add your dApp to the Ecosystem
 
 On the Effect Network, we have a [dApp ecosystem](https://effect.network/ecosystem) that is built on top of the Effect Network. This ecosystem is a place where developers can build their own dApps on top of the Effect Network.
 
