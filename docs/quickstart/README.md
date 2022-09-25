@@ -1,12 +1,13 @@
 # Quickstart Guide
 
-In the quick start guide, we will delve into how to use the Effect Network Effect-SDK so that you can publish tasks on the platform. 
+In the quick start guide, we will delve into how to use the Effect Network Effect-SDK so that you can publish tasks on the platform.
 The purpose of this quickstart guide is to provide guided instructions on how to use the Effect-SDK to interface with the Effect Network.
 
 This guide goes through the following steps:
+
 - Installing and initializing the Effect-SDK.
 - Creating and using a burner-wallet
-- Getting Testnet EFX 
+- Getting Testnet EFX
 - Publishing a campaign
 - Publishing tasks to Effect Network
 - Retrieving results
@@ -16,7 +17,11 @@ So let's get started!
 
 # Check out the Repo! 
 Just want to jump right into it right away? You can follow along with this guide or get started right away by going to the following link: [Hackathon-Boilerplate](https://github.com/effectai/hackathon-boilerplate)
-There you will find boilerplate code for your node and browser examples.
+There you will find boilerplate code with node and browser examples.
+
+# Checkout the SDK-Reference
+There is also a reference availbe for you with detailed information about the classes and methods: [SDK-Reference](https://effectai.github.io/effect-js/).
+
 
 # Requirements
 
@@ -24,12 +29,6 @@ There you will find boilerplate code for your node and browser examples.
 At the moment, our Effect-SDK is built using [TypeScript](https://www.typescriptlang.org/). You will need [NodeJS](https://nodejs.org/en/) in order to install the npm package. If you do not have NodeJS installed, you can find it here:
 [Download NodeJS for your platform.](https://nodejs.org/en/download/)
 
-
-If you want to use yarn instead of npm, you can install it with the following command after installing NodeJS
-
-```bash
-npm install --global yarn
-```
 
 :::tip 
 Typescript is optional, but the Effect-SDK does provide types for those that enjoy programming with Typescript.
@@ -56,103 +55,78 @@ touch index.html
 ### Creating package.json
 
 When you are inside of your project directory, initialize npm or yarn. Either one will help you to create a `package.json`.
-
-<code-group>
-<code-block title="NPM">
 ```bash
 npm init
 ```
-</code-block>
-
-<code-block title="YARN">
-```bash
-yarn init
-```
-</code-block>
-</code-group>
 
 ### Installing the Effect-SDK
 In your project folder, you can now start installing packages that will assist you in your journey.
 
-<code-group>
-<code-block title="NPM">
 ```bash
 npm install @effectai/effect-js
 ```
-</code-block>
-
-<code-block title="YARN">
-```bash
-yarn add @effectai/effect-js
-```
-</code-block>
-</code-group>
-
-Also, we will install an additional package called http-server, where we can serve our project.`
-
-<code-group>
-<code-block title="NPM">
-```bash
-npm install http-server --save-dev
-```
-</code-block>
-
-<code-block title="YARN">
-```bash
-yarn add http-server --dev
-```
-</code-block>
-</code-group>
-
-You can serve your project with the following command.
-
-<code-group>
-<code-block title="NPM">
-```bash
-npx http-server -c -1
-```
-</code-block>
-</code-group>
 
 ### Importing the Effect-SDK
 
 Depending on the environment that you are working in, you will need to import the SDK in different ways.
 #### Node
-<br>
+Due to the way that NodeJS works, you can `import` or `require` the Effect-SDK as needed. Depending on your needs, both ways are provided for you.
 
 <code-group>
-<code-block title="CommonJS">
+<code-block title="index.js (CommonJS)">
 ```js
+// index.js
 const effectsdk = require('@effectai/effect-js');
 ```
 </code-block>
 
-<code-block title="ES6">
+<code-block title="index.js (ES6)">
 ```js
+// index.js
 import * as effectsdk from '@effectai/effect-js';
 ```
 </code-block>
 </code-group>
 
 #### Browser
-When using the Effect SDK in the browser, import the SDK from the `node_modules` directory in your project to your main HTML file. While we are at it, we will add our main javascript file to the HTML file.
+When using the Effect SDK in the browser, import the SDK from the `node_modules/` directory in your project to your main HTML file. Alternatively we can use [unpkg](https://unpkg.com/@effectai/effect-js/) to import `Effect-JS` from a CDN. While we are at it, we will add our main javascript file `index.js` to the HTML file.
+
+:::warning Import/Export
+The name of the export is `effectsdk` and the import path of the sdk has to be **relative**.
+:::
+
+<!-- Browser -->
+<!-- <script src="path/to/dayjs/dayjs.min.js"></script> -->
+<!-- <script> -->
+  <!-- // dayjs().format() -->
+<!-- </script> -->
+<!-- CDN resource -->
+<!-- Day.js can be included by way of a CDN provider like cdnjs.com, unpkg and jsDelivr ... -->
+
+<!-- CDN example (unpkg) -->
+<!-- <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script> -->
+<!-- <script>dayjs().format()</script> -->
+ 
 
 <code-group>
 <code-block title="index.html">
 ```html
-<!DOCTYPE html encoding>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>My Effect Project</title>
+    <title>Effect dApp</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="./node_modules/@effectai/effect-js/dist/index.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js">
-    </script>
+    
+    <script src="./node_modules/@effectai/effect-js/dist/index.js"></script>
+    <!-- 👆️ relative import from node_modules -->
+
+    <script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></script>
+    <!-- 👆️ Or import from unpkg -->
   </head>
   <body>
-    ...
+    <!-- 🏗️ -->
+
+    <!-- 👇️ Script at bottom of body -->
     <script src="./index.js"></script>
   </body>
 </html>
@@ -160,14 +134,17 @@ When using the Effect SDK in the browser, import the SDK from the `node_modules`
 </code-block>
 </code-group>
 
-:::warning Import/Export
-The name of the export is `effectsdk` and the import path of the sdk has to be **relative**.
-You can also use the unpkg.com to get the latest version of the Effect-SDK.
-```html
-<script src="https://unpkg.com/@effectai/effect-js/dist/index.js"></script>
+
+
+<br>
+
+:::tip Live-Server
+When developing locally for your browser it might be useful to use a local server.
+You can quickly start a local server with the following command.
+```bash
+npx http-server -c -1
 ```
 :::
-<br>
 
 ### Initializing the Effect Client
 Now that we have installed the Effect SDK, it is time to initialize the EffectClient. Which will be the main object from which methods can be called in order to interact with the Effect Network.
@@ -181,11 +158,11 @@ const client = new effectsdk.EffectClient('jungle');
 </code-group>
 
 The constructor can take a configuration object, but the constructor will initialize with a default configuration object if no configuration object is passed. Take a look at [Effect-SDK Configuration](../sdk/README.md) for more information on the configuration object.
-The first parameter for the constructor is which network to use. At the moment, only **Jungle3 Testnet** is supported.
+The first parameter for the constructor is which network to use, there are three networks available: ['mainnet', 'testnet', 'local']. The default network is 'testnet'. 
 
-:::tip
-The code snippets written for the docs assume that they will be executed within the node repl using version: v16.10.0.
-:::
+The constructor will take as its first argument the network to use. There are three networks available: ['mainnet', 'testnet', 'local']. The default network is 'testnet'.
+In order to use the local network, you will need to spin up a local network. Refer to the [local network guide](../local/README.md) for more information.
+The second parameter that is taken by the constructor is the configuration object. The configuration object is an object that contains all the configuration options for SDK, such as the EOSIO endpoint, IPFS endpoint, etc. Please refer to the [Effect-SDK Configuration](../sdk/README.md) or [Effect-JS-Reference/EffectClientConfig](https://effectai.github.io/effect-js/interfaces/EffectClientConfig.html) for more information.
 
 ## Connect with burner wallet
 For this quickstart guide, we will be using a burner wallet. You can use the `createAccount()` method in order to generate a random keypair for you. If you already have a keypair, you could use the private key to instantiate the bsc account with it by using `createAccount('privateKey')`.
@@ -226,10 +203,20 @@ const effectAccount = await client.connectAccount(web3);
 
 ## Create Campaign
 
-The next step now is to create a campaign object. 
-This campaign object contains essential information such as; description, template, instructions, reward per task, example tasks. Creating a campaign is easy when you've managed to lay down the basic information.
+The next step now is to create a campaing json structure. This campaign object contains essential information such as; description, template, instructions, reward per task, example tasks. Creating a campaign is easy when you've managed to lay down the basic information.
 
-Use the example given below in order to create your own campaign object. 
+Use the example given below in order to create your own campaign object.
+
+The most dificult part of making the campaign is the html itself that needs to be passed to the `template` property. This html will be used to render the campaign.
+
+As can be seen below the template is not complete html. It does not contain the HTML tag: `<html>`, `head` nor `body`. This is because the html is rendered by the Effect-SDK.
+
+Another important thing to note is that you can import stylesheets and your js libraries in the html.
+
+It is recomended to use Effect Network's default style sheet, which you can import into the html template by adding this tag: `<link href="https://app.effect.network/force-defaults.css" rel="stylesheet" />
+`
+
+Also note that in the html template we have a `${tweet_id}` variable that will be replaced with an actual tweet id for every new task. The notation `${variable_name}` is called a placeholder. The placeholder will be replaced with the actual value when the task is created.
 
 <code-group>
 <code-block title="index.js">
@@ -237,27 +224,62 @@ Use the example given below in order to create your own campaign object.
 const uploadCampaignIpfs = {
 
   // The title of the campaign
-  title: 'Tree Friends 🐻',
+  title: 'Twitter Sentiment Analysis',
 
   // Description of the campaign
-  description: 'All the tree friends are lost. They need you to find them.',   
+  description: 'This is a campaign to analyze the sentiment of tweets from the Twitter API.',   
 
   // Instructions for workers on how to complete tasks, accepts Markdown
-  instructions: 'Identify all the happy tree friends!',  
+  instructions: 'Indicate the sentiment of the tweet in the task description.',  
 
   // The template that will be used for the tasks
-  template: `<div>
-                <image src='` + '${image_url}' + `'></image>
-                <h2>What do you see in the picture above? 🐸</h2>
-                <input type='radio' name='radio-answer' id="original" label=''>Stars 🤩</input><br>
-                <input type='radio' name='radio-answer' id="original" label=''>Mechanical Turk 😏</input><br>
-                <input type='radio' name='radio-answer' id="original" label=''>Dog 🤐</input> <br>
-                <input type='radio' name='radio-answer' id="original" label=''>Cat 😵</input><br>
-                <hr>
-                <button type="submit">Submit</button> 
-              </div>
-              <script></script>
-              <style></style>`,      
+  template: 
+  `<section class="section">
+        <div class="container has-text-centered">
+            <div id="tweet">
+                <h1 class="title">Tweet Sentiment</h1>
+            </div>
+
+            <form>
+                <div class="question question-sentiment">
+                    <h2 class="subtitle">What is the <b>sentiment of this post</b>?</h2>
+                    <div class="field">
+                        <input class="is-checkradio" id="negative" value="negative" type="radio" name="sentiment" required>
+                        <label for="negative">Negative</label>
+                        <input class="is-checkradio" id="neutral" value="neutral" type="radio" name="sentiment">
+                        <label for="neutral">Neutral</label>
+                        <input class="is-checkradio" id="positive" value="positive" type="radio" name="sentiment">
+                        <label for="positive">Positive</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="button is-primary is-large mt-6">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <link href="https://app.effect.network/force-defaults.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-checkradio@2.1.2/dist/css/bulma-checkradio.min.css">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+    <script>
+    window.addEventListener('load', function() {
+      // Note that the `createTweet` method is called after the `load` event has fired. 
+      // This happens because the Twitter library needs to be loaded first. 
+
+    // Tweet is added to div with the id container.
+    // 
+    twttr.widgets.createTweet('${tweet_id}', document.getElementById('tweet', {theme: 'dark'})).then(() => {forceResize()})
+
+    })
+
+    </script>
+    <style>
+    .twitter-tweet {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    </style>`,      
 
   // Campaign image
   image: 'https://ipfs.effect.ai/ipfs/bafkreiggnttdaxleeii6cdt23i4e24pfcvzyrndf5kzfbqgf3fxjryj5s4',  
@@ -267,7 +289,7 @@ const uploadCampaignIpfs = {
 
   // Example task that will prefill the task template
   example_task: {
-    'image_url': 'https://ipfs.effect.ai/ipfs/bafkreidrxwhqsxa22uyjamz7qq3lh7pv2eg3ykodju6n7cgprmjpal2oga'
+    'tweet_id': 'https://ipfs.effect.ai/ipfs/bafkreidrxwhqsxa22uyjamz7qq3lh7pv2eg3ykodju6n7cgprmjpal2oga'
   },
 
   // Version of the campaign
