@@ -2,7 +2,7 @@
 
 A template is simply some vanilla HTML that has a placeholder value that will be replaced with data when it is presented to the worker as a task. That's a bit of a mouthful; let's break it down.
 
-Please visit [effect.network/preview](https://effect.network/preview) to see and use an interactive template preview. You will be able to test your templates here as well. 
+Please visit [app.effect.network/preview](https://app.effect.network/preview) to see and use an interactive template preview. You will be able to test your templates here as well. 
 
 Let's imagine we have an image classification campaign; we want to identify if there are cats in the picture. We present a picture to the worker, and it is their task to identify what is in the picture. They see an image and are provided a list of options to choose from. 
 
@@ -119,3 +119,13 @@ One of our favorite use cases up until now that we've had is the polygon annotat
 As you can see, it is also possible to add javascript to the template, in order to make the whole template dynamic and make it a full-fledged application within the worker interface. 
 
 So go forth an let your imagination run wild. 
+
+## Special functions
+
+If you need an input field in the template that does not get included in the task results, you can prefix it's `name` attribute with `FORCE_`. Example:
+
+```
+<input name="FORCE_gets-excluded" type="text" />
+```
+
+
