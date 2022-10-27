@@ -64,7 +64,7 @@ In order to do these actions your dApp needs to be able to call these following 
 
 This is easy if you are owner of the campaign and you want to post tasks to it. But it is not possible if you are not the owner of the campaign.
 
-That's why we've created the efxtaskproxy account. It's permissions are set up in such a way that you're dApp can post any task that your dApp creates from anyone at anytime.
+That's why we've created the `efxtaskproxy` account. It's permissions are set up in such a way that you're dApp can post any task that your dApp creates from anyone at anytime.
 
 Build your Campaign as you normally would on [Testnet](https://testnet.effect.network) and then submit a pull request to add your campaign to the efxtaskproxy account.
 
