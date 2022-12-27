@@ -110,3 +110,4 @@ dist
 src/node_modules
 src/transactionObject.js
 
+.vscode/settings.json
