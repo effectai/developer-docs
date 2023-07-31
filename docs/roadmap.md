@@ -1,4 +1,4 @@
-# Roadmap / Ongoing Projects / Initiatives 
+# Ongoing Projects / Initiatives
 
 Welcome to the Effect Network roadmap transtioning to the Effect Network Ongoing Projects page! This page lays out the big goals that the project aims to achieve in the coming year.
 It provides a good high-level overview of what is currently going on and the content is kept up to date with development.
@@ -8,7 +8,7 @@ encouraged to contribute and join the discussion on the projects that interest
 you.
 
 <!-- TOC -->
-- [Roadmap / Ongoing Projects / Initiatives](#roadmap--ongoing-projects--initiatives)
+- [Ongoing Projects / Initiatives](#ongoing-projects--initiatives)
   - [Effect Network v2.0](#effect-network-v20)
   - [Standard Campaign Library](#standard-campaign-library)
   - [Python SDK](#python-sdk)
@@ -32,7 +32,7 @@ We want to make it as easy as possible for people to train AI models and earn mo
 
 ## Standard Campaign Library
 
-The standard campaign library is a collection of tempates that the Effect Network manages. 
+The standard campaign library is a collection of tempates that the Effect Network manages.
 The templates are used to publish data of tasks into an interface that workers can use to complete the tasks.
 There is a collection of commonly used templates that are used to create campaigns.
 Ranging from Image Classification, Text Classification, Audio Classification, and more.
