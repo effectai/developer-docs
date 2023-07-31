@@ -1,43 +1,77 @@
-# Roadmap
+# Roadmap / Ongoing Projects / Initiatives 
 
-Welcome to the Effect Network roadmap! This page lays out the big goals that the
-project aims to achieve in the coming year. It provides a good high-level
-overview of what is currently going on and the content is kept up to date with
-development.
+Welcome to the Effect Network roadmap transtioning to the Effect Network Ongoing Projects page! This page lays out the big goals that the project aims to achieve in the coming year.
+It provides a good high-level overview of what is currently going on and the content is kept up to date with development.
 
 Most items on the roadmap link to an external issue or information page. You are
 encouraged to contribute and join the discussion on the projects that interest
 you.
 
-### Q1 '22
+<!-- TOC -->
+- [Roadmap / Ongoing Projects / Initiatives](#roadmap--ongoing-projects--initiatives)
+  - [Effect Network v2.0](#effect-network-v20)
+  - [Standard Campaign Library](#standard-campaign-library)
+  - [Python SDK](#python-sdk)
+  - [Typescript SDK](#typescript-sdk)
+  - [Mobile App](#mobile-app)
+  - [DAO](#dao)
+  - [Hackathon](#hackathon)
+<!-- /TOC -->
 
-- Beta release of the new Effect Force on testnet [[✔](https://testnet.effect.network)]
-- Project partnerships and task onboarding [ongoing]
-- Release of the SDK [[✔](https://effectai.github.io/effect-js/)]
-- Release of new website [[✔](https://effect.network/)]
+## Effect Network v2.0
 
-### Q2 '22
+The Effect Network is getting an upgrade.
+The driving motivator for the update is to incorporate humans in the AI training loop.
+We've been listening to the community and the workers, and we've come assembled a list of features that we want to implement in the new Effect Network.
+We want to make it as easy as possible for people to train AI models and earn money doing so.
 
-- Mainnet release of the new Effect Network [[✔](https://app.effect.network)]
-- Network fees [[✔](https://github.com/effectai/effect-network/issues/88)]
-- Effect Ecosystem release [[✔](https://effect.network/ecosystem)]
-- Decentralized Qualification System [[✔](https://github.com/effectai/force-frontend-new/pull/142)]
+- [ ] Revamp Smart Contracts [[⚙](https://github.com/effectai)
+- [ ] New Reservation system [[⚙](https://github.com/effectai)
+- [ ] No more Caching (Read wicked fast) [[⚙](https://github.com/effectai)
+- [ ] New NFT qualification system [[⚙](https://github.com/effectai)
 
-### Q3 '22
+## Standard Campaign Library
 
-- Mobile app release [[more︎️](https://github.com/effectai/force-frontend-new/issues/150)]
-- **Updates to the DAO** [[⚙](https://github.com/effectai/effect-network/issues/92)]
-- **High Guard selection system** [[⚙](https://discord.com/channels/519860537891487745/1045783830042247198/1045783830042247198)]
-- Users can add custom qualifications [[✔](https://github.com/effectai/force-frontend-new/issues/152)]
-- Deposit EFX from BSC [[⚙](https://github.com/effectai/force-frontend-new/issues/151)]
+The standard campaign library is a collection of tempates that the Effect Network manages. 
+The templates are used to publish data of tasks into an interface that workers can use to complete the tasks.
+There is a collection of commonly used templates that are used to create campaigns.
+Ranging from Image Classification, Text Classification, Audio Classification, and more.
+The standard campaign librry is open source, and developers can contribute their own templates to the library.
 
-### Q4 '22
+The templates are open source and can be found [here](https://github.com/effectai/)
 
-- Effect Academy [[✔](https://developer.effect.network)][ongoing]
-- Notification system
-- Hackathon and grants program [[✔](https://effect.network/launchathon)][ongoing]
-- ~~In-app swapping via PancakeSwap or Defibox~~
+## Python SDK
 
-### QX
+With a new Effect Network comes a new SDK. With the focus being training ML models, we want to engage the ML community. The ML community is used to working with Python and we want to make it as easy as possible for them to interact with the Effect Network.
+The SDK is a Python package that allows developers to easily interact with the Effect Network. It provides a simple interface to the Effect Network smart contracts and the Effect Force API.
 
-- ~~Easy FIAT on- and off-ramp for users~~
+Developers will be able to easily create publish a batch from their Jupyter Notebooks and monitor the progress of their tasks. Dataframes in, dataframes out is our new motto.
+
+The SDK is currently in alpha and can be found [here](https://github.com/effectai).
+
+## Typescript SDK
+
+Next to the Python SDK, we also have the Typescript SDK.
+Typescript is deeply integrated with all kinds of webapps, and we want to make it as easy as possible for developers to integrate the Effect Network into their webapps.
+The Typescript SDK is a Typescript package that allows developers to easily interact with the Effect Network. It provides a simple interface to the Effect Network smart contracts and the Effect Force API.
+
+You can find the Typescript SDK [here](https://github.com/effectai/effect-js).
+
+## Mobile App
+
+The Effect Network is getting a mobile app! The mobile app will allow users to easily interact with the Effect Network. Users will be able to easily create an account, and start working on tasks. The mobile app will also allow users to easily be notified of new tasks monitor their progress and earnings.
+
+The mobile app is currently in alpha and can be found [here](https://github.com/effectai/)
+
+## DAO
+
+The governing body of the DAO is the Effect DAO. The Effect DAO is responsible for the administering different aspects of the Effect Network. Such as the Treasury, Development, Platform, and Marketing.
+
+The Effect DAO can be found [here](https://dao.effect.network).
+We invite one and all to join our Discord and participate in the DAO.
+
+## Hackathon
+
+The Effect Network is hosting recurring hackathons!
+The hackathons are a great way to get involved with the Effect Network and earn some EFX.
+Learn more about the next Effect Network Hackathon [here](https://effect.network/hackathon).
