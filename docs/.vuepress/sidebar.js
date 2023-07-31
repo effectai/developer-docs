@@ -78,7 +78,7 @@ module.exports = [
             "glossary",
             "contact",
             "about",
-            "roadmap"
+            "initiatives"
         ]
     },
 ]
